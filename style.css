@@ -327,6 +327,7 @@ header{
     grid-template-columns: 0.4fr 1fr;
     align-items: center;
     min-height: 100vh;
+    margin-top: 2rem;
 }
 .login-container {
     display: flex;
