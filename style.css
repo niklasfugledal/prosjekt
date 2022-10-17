@@ -476,7 +476,16 @@ header{
         .about-text h2,
         .heading h2,
         .newsletter h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        }
+        .properties-container {
+            padding: 0;
+        }
+        .newsletter #mail-box {
+            width: 100px;
+        }
+        .footer {
+            border-radius: 3rem 0 0 0;
         }
     }
 
