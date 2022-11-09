@@ -1,6 +1,10 @@
+<?php
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +34,15 @@
                 <li><a href="#Hybler">Hybler</a></li>
             </ul>
             <!-- Logg inn knapp -->
-            <a href="login.php" class="btn">Logg Inn</a>
+            <?php 
+            if(isset($_SESSION['fullName']))
+            {
+                $fullName = $_SESSION['fullName'];
+                echo "<a class = 'btn' href = 'profile.php'>". $_SESSION['fullName'] . "</a>"; // <p> = Klassen som skal styles
+            }else{
+                echo '<a href="login.php" class="btn">Logg Inn</a>';
+            }
+            ?>
         </div>
 
     </header>

@@ -31,7 +31,7 @@
             <h2>Velkommen!</h2>
             <p>Allerede en bruker? <a href="login.php">Logg inn</a></p>
             <!--Logg inn form-->
-            <form action="connect.login.php" method="post">
+            <form action="signup.inc.php" method="post">
                 <span>Fult navn</span>
                 <input type="text" id="fullName" name = "fullName" value ="<?php if(isset($_POST["fullName"])){echo $_POST["fullName"];} ?>"placeholder="Ditt navn" required>
                 <span>Legg til din email</span>
@@ -41,14 +41,6 @@
                 <span>Skriv inn passord</span>
                 <input type="password" id="password" name = "password" value = "<?php if(isset($_POST["password"])){echo $_POST["password"];} ?>" placeholder="Passord" required>
                 <input type="submit" value="Registrer" class="buttom">
-
-                <?php
-                if(isset($_POST['submit']))
-                {
-                    header("Location: login.php");
-                    die();
-                }
-                ?>
 
 
                 <a href="login.php">Allerede en bruker?</a>
