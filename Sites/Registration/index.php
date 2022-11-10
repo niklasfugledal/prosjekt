@@ -1,10 +1,13 @@
 <?php
+
 session_start();
 
+if (isset($_SESSION['id']) && isset($_SESSION['email']))
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,14 +37,23 @@ session_start();
                 <li><a href="#Hybler">Hybler</a></li>
             </ul>
             <!-- Logg inn knapp -->
-            <?php 
+
+            <?php
+        if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+            ?>
+                <a class = 'btn' href="logout.php">Log out</a>
+                
+            <?php } else { ?>
+                <a class = 'btn' href="login.php">Login</a>
+            <?php } ?>
+            <?php
+            
             if(isset($_SESSION['fullName']))
             {
                 $fullName = $_SESSION['fullName'];
                 echo "<a class = 'btn' href = 'profile.php'>". $_SESSION['fullName'] . "</a>"; // <p> = Klassen som skal styles
-            }else{
-                echo '<a href="login.php" class="btn">Logg Inn</a>';
             }
+
             ?>
         </div>
 
@@ -68,7 +80,7 @@ session_start();
     </section>
     <!--sales-->
     <section class="sales container" id="sales">
-    <!--Box 1-->
+        <!--Box 1-->
         <div class="box">
             <i class='bx bx-user'></i>
             <h3>Din profil</h3>
@@ -87,105 +99,105 @@ session_start();
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsum?</p>
         </div>
     </section>
-        <!--properties-->
-        <section class="properties container" id="properties">
-            <div class="heading">
-                <span>Recent</span>
-                <h2>Våre hybler</h2>
-                <p>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Culpa, nam?</p>
-            </div>
-            <div class="properties-container container">
-                <!-- Box 1 -->
-                <div class="box">
-                    <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-                    <h3>3699kr mnd</h3>
-                    <div class="content">
-                        <div class="text">
-                            <h3>Enkeltmanns rom</h3>
-                            <p>På Campus</p>
-                        </div>
-                        <div class="icon">
-                            <i class='bx bx-bed'><span>1</span></i>
-                            <i class='bx bx-bath'><span>1</span></i>
+    <!--properties-->
+    <section class="properties container" id="properties">
+        <div class="heading">
+            <span>Recent</span>
+            <h2>Våre hybler</h2>
+            <p>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Culpa, nam?</p>
+        </div>
+        <div class="properties-container container">
+            <!-- Box 1 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
                     </div>
                 </div>
-             </div>    
-             <!-- Box 2 -->
-             <div class="box">
-                 <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-                 <h3>3699kr mnd</h3>
-                 <div class="content">
-                     <div class="text">
-                         <h3>Enkeltmanns rom</h3>
-                         <p>På Campus</p>
-                     </div>
-                     <div class="icon">
-                         <i class='bx bx-bed'><span>1</span></i>
-                         <i class='bx bx-bath'><span>1</span></i>
-                 </div>
-             </div>
-          </div>    
-          <!-- Box 3 -->
-          <div class="box">
-              <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-              <h3>3699kr mnd</h3>
-              <div class="content">
-                  <div class="text">
-                      <h3>Enkeltmanns rom</h3>
-                      <p>På Campus</p>
-                  </div>
-                  <div class="icon">
-                      <i class='bx bx-bed'><span>1</span></i>
-                      <i class='bx bx-bath'><span>1</span></i>
-              </div>
-          </div>
-       </div>    
-       <!-- Box 4 -->
-       <div class="box">
-           <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-           <h3>3699kr mnd</h3>
-           <div class="content">
-               <div class="text">
-                   <h3>Enkeltmanns rom</h3>
-                   <p>På Campus</p>
-               </div>
-               <div class="icon">
-                   <i class='bx bx-bed'><span>1</span></i>
-                   <i class='bx bx-bath'><span>1</span></i>
-           </div>
-       </div>
-    </div>    
-    <!-- Box 5 -->
-    <div class="box">
-        <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-        <h3>3699kr mnd</h3>
-        <div class="content">
-            <div class="text">
-                <h3>Enkeltmanns rom</h3>
-                <p>På Campus</p>
             </div>
-            <div class="icon">
-                <i class='bx bx-bed'><span>1</span></i>
-                <i class='bx bx-bath'><span>1</span></i>
+            <!-- Box 2 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 4 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 5 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 6 -->
+            <div class="box">
+                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <h3>3699kr mnd</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>Enkeltmanns rom</h3>
+                        <p>På Campus</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span>1</span></i>
+                        <i class='bx bx-bath'><span>1</span></i>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>    
- <!-- Box 6 -->
- <div class="box">
-     <img src="/Assets/Images/enkeltmann hybel.png" alt="">
-     <h3>3699kr mnd</h3>
-             <div class="content">
-                <div class="text">
-                 <h3>Enkeltmanns rom</h3>
-                 <p>På Campus</p>
-                </div>
-                <div class="icon">
-                    <i class='bx bx-bed'><span>1</span></i>
-                    <i class='bx bx-bath'><span>1</span></i>
-                    </div>
-                </div>
-            </div>
-        </div> 
     </section>
     <!--Nyhetsbrev-->
     <section class="newsletter container">
@@ -228,4 +240,5 @@ session_start();
         <p>&#169; UiA Hybel opphavsrett</p>
     </div>
 </body>
+
 </html>

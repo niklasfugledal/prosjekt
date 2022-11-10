@@ -31,37 +31,19 @@
             <h2>Logg inn for å fortsette</h2>
             <p>Logg inn med dataen du brukte <br> når du registrerte deg.</p>
             <!--Logg inn form-->
-            
-                <form action="authentication.php" onsubmit="return validation()" method ="POST">
+            <form action="login.inc.php" method="post">
+                <?php if (isset($_GET['error'])) { ?>
+
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+
+                <?php } ?>
                 <span>Legg til din email</span>
-                <input type="email" name="" id="" placeholder="dinmail@gmail.com" required>
+                <input type="email" name="email" id="" placeholder="dinmail@gmail.com" required>
                 <span>Skriv inn passord</span>
-                <input type="password" name="" id="" placeholder="Passord" required>
+                <input type="password" name="password" id="" placeholder="Passord" required>
                 <input type="submit" value="Logg inn" class="buttom">
                 <a href="#">Glemt passord?</a>
             </form>
-            <script>  
-            function validation()  
-            {  
-                var id=document.f1.user.value;  
-                var ps=document.f1.pass.value;  
-                if(id.length=="" && ps.length=="") {  
-                    alert("Email and Password fields are empty");  
-                    return false;  
-                }  
-                else  
-                {  
-                    if(id.length=="") {  
-                        alert("Email is empty");  
-                        return false;  
-                    }   
-                    if (ps.length=="") {  
-                    alert("Password field is empty");  
-                    return false;  
-                    }  
-                }                             
-            }  
-        </script>  
             <a href="sign-up.php" class="btn">Registrer nå</a>
         </div>
         <!-- logg inn img -->
