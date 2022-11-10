@@ -6,15 +6,15 @@ $errors = array();
 
 if (isset($_POST["login_user"]))
 {
-    $username = $_POST["username"];
+    $username = $_POST["email"];
     $password = $_POST["password"];
     
         
     $password = md5($password);
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $query = "SELECT * FROM registration WHERE email ='$email' AND password='$password'";
     $results = mysqli_query($conn, $query);
     if (mysqli_num_rows($results) == 1) {
-    $_SESSION['username'] = $username;
+    $_SESSION['email'] = $email;
     $_SESSION['success'] = "You are now logged in";
     header('location: index.html');
 }

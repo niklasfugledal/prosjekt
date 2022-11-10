@@ -31,14 +31,37 @@
             <h2>Logg inn for å fortsette</h2>
             <p>Logg inn med dataen du brukte <br> når du registrerte deg.</p>
             <!--Logg inn form-->
-            <form action="">
+            
+                <form action="authentication.php" onsubmit="return validation()" method ="POST">
                 <span>Legg til din email</span>
-                <input type ="email" name="" id="" placeholder="dinmail@gmail.com" required>
+                <input type="email" name="" id="" placeholder="dinmail@gmail.com" required>
                 <span>Skriv inn passord</span>
                 <input type="password" name="" id="" placeholder="Passord" required>
                 <input type="submit" value="Logg inn" class="buttom">
                 <a href="#">Glemt passord?</a>
             </form>
+            <script>  
+            function validation()  
+            {  
+                var id=document.f1.user.value;  
+                var ps=document.f1.pass.value;  
+                if(id.length=="" && ps.length=="") {  
+                    alert("Email and Password fields are empty");  
+                    return false;  
+                }  
+                else  
+                {  
+                    if(id.length=="") {  
+                        alert("Email is empty");  
+                        return false;  
+                    }   
+                    if (ps.length=="") {  
+                    alert("Password field is empty");  
+                    return false;  
+                    }  
+                }                             
+            }  
+        </script>  
             <a href="sign-up.php" class="btn">Registrer nå</a>
         </div>
         <!-- logg inn img -->
@@ -46,7 +69,7 @@
             <img src="Computer login-rafiki.png" alt="">
         </div>
     </div>
-   
+
     <!-- footer -->
     <section class="footer">
         <div class="footer-container container">
@@ -80,4 +103,5 @@
         <p>&#169; UiA Hybel opphavsrett</p>
     </div>
 </body>
+
 </html>
