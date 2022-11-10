@@ -15,8 +15,8 @@ if($conn->connect_error)
     $cell = $_POST['cell'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("INSERT INTO registration(fullName, email, cell, password) values(?,?,?,?)");
-    $stmt->bind_param("ssss", $fullName, $email, $cell, $password);
+    $stmt = $conn->prepare("INSERT INTO registration(fullName, email, password) values(?,?,?,?)");
+    $stmt->bind_param("ssss", $fullName, $email, $password);
     $stmt->execute();
     echo "Registrering vellykket...";
     $_SESSION['fullName'] = $fullName;
