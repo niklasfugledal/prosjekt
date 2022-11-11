@@ -4,7 +4,7 @@ include "Database.php";
 session_start();
 
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
+if (isset($_POST['email']) && isset($_POST['user_password'])) {
 
     function validate($data)
     {
@@ -20,7 +20,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $email = validate($_POST['email']);
 
-    $password = validate($_POST['password']);
+    $password = validate($_POST['user_password']);
 
     if (empty($email)) {
 
@@ -34,7 +34,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         exit();
     } else {
 
-        $sql = "SELECT * FROM registration WHERE email='$email' AND password='$password'";
+        $sql = "SELECT * FROM registration WHERE email='$email' AND user_password='$password'";
 
         $result = mysqli_query($conn, $sql);
 
@@ -42,13 +42,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
             $row = mysqli_fetch_assoc($result);
 
-            if ($row['email'] === $email && $row['password'] === $password) {
+            if ($row['email'] === $email && $row['user_password'] === $password) {
 
                 echo "Logged in!";
 
                 $_SESSION['email'] = $row['email'];
 
-                $_SESSION['name'] = $row['name'];
+                $_SESSION['user_password'] = $row['user_password'];
 
                 $_SESSION['id'] = $row['id'];
 

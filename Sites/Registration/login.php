@@ -31,18 +31,17 @@
             <h2>Logg inn for å fortsette</h2>
             <p>Logg inn med dataen du brukte <br> når du registrerte deg.</p>
             <!--Logg inn form-->
-            <form action="login.inc.php" method="post">
-                <?php if (isset($_GET['error'])) { ?>
-
-                    <p class="error"><?php echo $_GET['error']; ?></p>
-
-                <?php } ?>
+            <form action="authenticate.php" method="post">
                 <span>Legg til din email</span>
-                <input type="email" name="email" id="" placeholder="dinmail@gmail.com" required>
+                <input type="text" name="email" placeholder="dinmail@gmail.com" required>
+
                 <span>Skriv inn passord</span>
-                <input type="password" name="password" id="" placeholder="Passord" required>
+                <input type="password" name="user_password" placeholder="Passord" required>
+
                 <input type="submit" value="Logg inn" class="buttom">
                 <a href="#">Glemt passord?</a>
+
+
             </form>
             <a href="sign-up.php" class="btn">Registrer nå</a>
         </div>
@@ -51,6 +50,22 @@
             <img src="Computer login-rafiki.png" alt="">
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- footer -->
     <section class="footer">

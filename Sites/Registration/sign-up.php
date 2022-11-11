@@ -33,86 +33,81 @@
             <!--Logg inn form-->
 
             <?php
+            include_once 'Database.php';
+
 
             if (isset($_POST["submit"])) {
                 // sjekker at formet er fylt ut og henter verdiene
                 $user = $_POST["fullName"];
-                $email = $_POST["email"];
-                $pwdRepeat = $_POST["pass1"];
+                $email = $_POST['email'];
+                $pwd = $_POST["pass1"];
+                $pwdRepeat = $_POST["pass2"];
                 //Sjekker om brukernavnet er tomt og om brukernavet inneholde tilatte symboler
                 if (empty($user)) {
                     $user_err = "Brukernavnet kan ikke være tomt";
-                } elseif (!preg_match('/^[a-zA-Z0-9 øæåØÆÅ]+$/', $user)) {
+                } elseif (!preg_match('/^[a-zA-Z0-9 øæå]+$/', $user)) {
                     $user_err = "Brukernavnet kan kun inneholder bokstaver og tall";
                 } else {
-
-                    //Forbreder spørringen for å sjekke om brukernavnet allerede er i bruk
-                    $quey = $conn->prepare("select * from registration where fullName = ?");
-                    //Kobler parameterene i spøringen med verdiene hentet ut fra from-et.
-                    $quey->bind_param("s", $user);
-                    // utfører spørringen
-                    $quey->execute();
-                    // henter resultatet
-                    $quey->store_result();
-                    // sjekker antale rader
-                    if ($quey->num_rows == 1) {
-                        $user_err = "Brukernavnet er alt tatt";
+                    if (empty($email)) {
+                        $email_err = "Email kan ikke være tomt";
+                        //Forbreder spørringen for å sjekke om brukernavnet allerede er i bruk
+                        $quey = $conn->prepare("select * from registration where fullName = ?");
+                        //Kobler parameterene i spøringen med verdiene hentet ut fra from-et.
+                        $quey->bind_param("ss", $user, $email);
+                        // utfører spørringen
+                        $quey->execute();
+                        // henter resultatet
+                        $quey->store_result();
+                        // sjekker antale rader
+                        if ($quey->num_rows == 2) {
+                            $user_err = "Brukernavnet er alt tatt";
+                            $email_err = "Email er alt tatt";
+                        }
+                        // lukker spørringen
+                        $quey->close();
                     }
-                    // lukker spørringen
-                    $quey->close();
-                }
 
-                if ($pwd !== $pwdRepeat) {
-                    $pass_err = "Passordene må være like";
-                }
+                    if ($pwd !== $pwdRepeat) {
+                        $pass_err = "Passordene må være like";
+                    }
 
-                if (empty($user_err) and empty($pass_err)) {
-                    //forbreder spørringen
-                    $quey = $conn->prepare("insert into registration(fullName, email, password) values(?,?,?)");
-                    // hasher passordet
-                    $hashPwd = password_hash($pwd, PASSWORD_DEFAULT);
-                    $quey->bind_param("ss", $user, $hashPwd);
-                    // utfører spørringen
-                    $quey->execute();
+                    if (empty($user_err) and empty($pass_err) and empty($email_err)) {
+                        //forbreder spørringen
+                        $quey = $conn->prepare("insert into registration(fullName, email, user_password) values(?,?,?)");
+                        // hasher passordet
+                        $hashPwd = password_hash($pwd, PASSWORD_DEFAULT);
+                        $quey->bind_param("sss", $user, $email, $hashPwd);
+                        // utfører spørringen
+                        $quey->execute();
 
-                    //lukker spørringen
-                    $quey->close();
-                    //luker tilkoblingen til db
-                    $conn->close();
-                    header("Location: login.php");
+                        //lukker spørringen
+                        $quey->close();
+                        //luker tilkoblingen til db
+                        $conn->close();
+                        header("Location: login.php");
+                    }
                 }
             }
-
             ?>
-            <?php include_once('Database.php'); ?>
 
-
-            <form action="Database.php" method="post">
+            <form action="" method="post">
                 <span>Fult navn</span>
-                <input type="text" id="fullName" name="fullName" value="<?php if (isset($_POST["fullName"])) {
-                                                                            echo $_POST["fullName"];
-                                                                        } ?>" placeholder="Ditt navn" required oninvalid="this.setCustomValidity('Fyll inn brukernavn')" oninput="this.setCustomValidity('')" />
+                <input type="text" name="fullName" placeholder="Fult navn" required oninvalid="this.setCustomValidity('Fyll inn fult navn')" oninput="this.setCustomValidity('')" />
                 <span class="invalide-feedback"> <?php echo isset($user_err) ? $user_err : null; ?> </span>
 
 
                 <span>Legg til din email</span>
-                <input type="email" id="email" name="email" value="<?php if (isset($_POST["email"])) {
-                                                                        echo $_POST["email"];
-                                                                    } ?>" placeholder="dinmail@gmail.com" required>
+                <input type="email" name="email" placeholder ="Email" required oninvalid="this.setCustomValidity('Fyll inn email')" oninput="this.setCustomValidity('')" />
+                <span class="invalide-feedback"> <?php echo isset($email_err) ? $email_err : null; ?> </span>
 
                 <span>Passord</span>
-                <div class="mb-2 form-floating">
+                <input type="password" class="form-control" placeholder="Password" name="pass1" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
+                <span class="invalide-feedback"> <?php echo isset($pass_err) ? $pass_err : null; ?> </span>
 
-                    <input type="password" class="form-control" placeholder="Password" name="pass1" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
-                    <span class="invalide-feedback"> <?php echo isset($pass_err) ? $pass_err : null; ?> </span>
+                <span>Bekreft passord</span>
+                <input type="password" class="form-control" placeholder="Password" name="pass2" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
 
-                </div>
 
-                <div class="mb-2 form-floating">
-                    <span>Bekreft passord</span>
-                    <input type="password" class="form-control" placeholder="Password" name="pass2" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
-
-                </div>
 
                 <input type="submit" name="submit" value="Registrer" class="buttom">
 
