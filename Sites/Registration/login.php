@@ -62,11 +62,6 @@
 
 
 
-
-
-
-
-
     <!-- footer -->
     <section class="footer">
         <div class="footer-container container">

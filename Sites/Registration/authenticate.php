@@ -17,6 +17,7 @@ if ($conn->connect_error) {
 if ( !isset($_POST['email'], $_POST['user_password']) ) {
 	// Could not get the data that should have been sent.
 	exit('Please fill both the username and password fields!');
+    
 }
 if ($stmt = $conn->prepare('SELECT id, email, user_password FROM registration WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
@@ -41,12 +42,12 @@ if ($stmt = $conn->prepare('SELECT id, email, user_password FROM registration WH
             header("Location: index.php");
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or password!';
+            header("Location: login.php");
+            echo "Feil email!";
         }
     } else {
         // Incorrect username
-        echo 'Incorrect username and/or password!';
+        header("Location: login.php");
+        echo "Feil passord!";
     }
-
-    $stmt->close();
 }
