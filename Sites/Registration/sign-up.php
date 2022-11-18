@@ -1,3 +1,85 @@
+<?php
+            include_once 'Database.php';
+
+
+            if (isset($_POST["submit"])) {
+                // sjekker at formet er fylt ut og henter verdiene
+                $user = $_POST["fullName"];
+                $email = $_POST['email'];
+                $pwd = $_POST["pass1"];
+                $pwdRepeat = $_POST["pass2"];
+
+                $image = $_FILES['image']['fullName '];
+                $image_tmp_name = $_FILES['image']['tmp_name'];
+                $image_size = $_FILES['image']['image_size'];
+                $image_folder = 'uploaded_img/'.$image;
+
+                $select = $conn->prepare("SELECT * FROM 'registration' WHERE email = ?");
+                $select->execute([$email]);
+
+                if($select->num_rows() > 0) 
+                {
+                    $message[] = 'Brukeren eksisterer allerede!';
+                }else{
+                    if($pass1 != $pass2){
+                        $message[] = 'Passorende stemmer ikke overens!';
+                    }
+                } 
+
+                //Sjekker om brukernavnet er tomt og om brukernavet inneholde tilatte symboler
+                if (empty($user)) {
+                    $user_err = "Brukernavnet kan ikke være tomt";
+                } elseif (!preg_match('/^[a-zA-Z0-9 øæå]+$/', $user)) {
+                    $user_err = "Brukernavnet kan kun inneholder bokstaver og tall";
+                } else {
+                    if (empty($email)) {
+                        $email_err = "Email kan ikke være tomt";
+                        //Forbreder spørringen for å sjekke om brukernavnet allerede er i bruk
+                        $quey = $conn->prepare("select * from registration where fullName = ?");
+                        //Kobler parameterene i spøringen med verdiene hentet ut fra from-et.
+                        $quey->bind_param("ss", $user, $email);
+                        // utfører spørringen
+                        $quey->execute([$user, $email, $pwdRepeat, $image]);
+                        if($quey) 
+                        {
+                            move_uploaded_file($image_tmp_name, $image_folder); 
+                        }
+
+                        // henter resultatet
+                        $quey->store_result();
+                        // sjekker antale rader
+                        if ($quey->num_rows == 2) {
+                            $user_err = "Brukernavnet er alt tatt";
+                            $email_err = "Email er alt tatt";
+                        }
+                        // lukker spørringen
+                        $quey->close();
+                    }   
+
+                    if ($pwd !== $pwdRepeat) {
+                        $pass_err = "Passordene må være like";
+                    }
+
+                    if (empty($user_err) and empty($pass_err) and empty($email_err)) {
+                        //forbreder spørringen
+                        $quey = $conn->prepare("insert into registration(fullName, email, user_password, image) values(?,?,?,?)");
+                        // hasher passordet
+                        $hashPwd = password_hash($pwd, PASSWORD_DEFAULT);
+                        $quey->bind_param("ssss", $user, $email, $hashPwd, $image);
+                        // utfører spørringen
+                        $quey->execute([$user, $email, $pwdRepeat, $image]);
+
+                        //lukker spørringen
+                        $quey->close();
+                        //luker tilkoblingen til db
+                        $conn->close();
+                        header("Location: login.php");
+                    }
+                }
+            }
+            ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,62 +114,16 @@
             <p>Allerede en bruker? <a href="login.php">Logg inn</a></p>
             <!--Logg inn form-->
 
+            <div class="message"></div>
+
             <?php
-            include_once 'Database.php';
-
-
-            if (isset($_POST["submit"])) {
-                // sjekker at formet er fylt ut og henter verdiene
-                $user = $_POST["fullName"];
-                $email = $_POST['email'];
-                $pwd = $_POST["pass1"];
-                $pwdRepeat = $_POST["pass2"];
-                //Sjekker om brukernavnet er tomt og om brukernavet inneholde tilatte symboler
-                if (empty($user)) {
-                    $user_err = "Brukernavnet kan ikke være tomt";
-                } elseif (!preg_match('/^[a-zA-Z0-9 øæå]+$/', $user)) {
-                    $user_err = "Brukernavnet kan kun inneholder bokstaver og tall";
-                } else {
-                    if (empty($email)) {
-                        $email_err = "Email kan ikke være tomt";
-                        //Forbreder spørringen for å sjekke om brukernavnet allerede er i bruk
-                        $quey = $conn->prepare("select * from registration where fullName = ?");
-                        //Kobler parameterene i spøringen med verdiene hentet ut fra from-et.
-                        $quey->bind_param("ss", $user, $email);
-                        // utfører spørringen
-                        $quey->execute();
-                        // henter resultatet
-                        $quey->store_result();
-                        // sjekker antale rader
-                        if ($quey->num_rows == 2) {
-                            $user_err = "Brukernavnet er alt tatt";
-                            $email_err = "Email er alt tatt";
-                        }
-                        // lukker spørringen
-                        $quey->close();
-                    }
-
-                    if ($pwd !== $pwdRepeat) {
-                        $pass_err = "Passordene må være like";
-                    }
-
-                    if (empty($user_err) and empty($pass_err) and empty($email_err)) {
-                        //forbreder spørringen
-                        $quey = $conn->prepare("insert into registration(fullName, email, user_password) values(?,?,?)");
-                        // hasher passordet
-                        $hashPwd = password_hash($pwd, PASSWORD_DEFAULT);
-                        $quey->bind_param("sss", $user, $email, $hashPwd);
-                        // utfører spørringen
-                        $quey->execute();
-
-                        //lukker spørringen
-                        $quey->close();
-                        //luker tilkoblingen til db
-                        $conn->close();
-                        header("Location: login.php");
-                    }
+            if(isset($message))
+            {
+                foreach($message as $message){
+                    echo '';
                 }
             }
+
             ?>
 
             <form action="" method="post">
@@ -97,7 +133,7 @@
 
 
                 <span>Legg til din email</span>
-                <input type="email" name="email" placeholder ="Email" required oninvalid="this.setCustomValidity('Fyll inn email')" oninput="this.setCustomValidity('')" />
+                <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Fyll inn email')" oninput="this.setCustomValidity('')" />
                 <span class="invalide-feedback"> <?php echo isset($email_err) ? $email_err : null; ?> </span>
 
                 <span>Passord</span>
@@ -107,7 +143,8 @@
                 <span>Bekreft passord</span>
                 <input type="password" class="form-control" placeholder="Password" name="pass2" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
 
-
+                <span>Profilbilde</span>
+                <input type="file" name="image" accept="image/jpg,image/png,imagejpeg">
 
                 <input type="submit" name="submit" value="Registrer" class="buttom">
 
