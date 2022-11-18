@@ -41,6 +41,13 @@
                 <input type="submit" value="Logg inn" class="buttom">
                 <a href="#">Glemt passord?</a>
 
+                <?php
+               
+
+                ?>
+
+
+
 
             </form>
             <a href="sign-up.php" class="btn">Registrer nå</a>
