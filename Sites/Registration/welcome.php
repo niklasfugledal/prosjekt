@@ -126,7 +126,7 @@ include 'Database.php';
 
 
             <div>
-                <button type="submit" name="submit" class="btn">Update Profile</button>
+                    
             </div>
         </form>
     </div>

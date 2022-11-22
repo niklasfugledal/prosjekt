@@ -546,6 +546,7 @@ header {
 @media (max-width: 572px) {
     .login-image {
         display: none;
+        
     }
 
     .login {
