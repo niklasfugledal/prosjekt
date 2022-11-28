@@ -7,6 +7,9 @@ $db = mysqli_connect('localhost', 'root', '', 'prosjekt');
 // variable declaration
 $username = "";
 $email    = "";
+$adress = "";
+$cell = "";
+$bday = "";
 $errors   = array(); 
 
 // call the register() function if register_btn is clicked
@@ -17,27 +20,39 @@ if (isset($_POST['register_btn'])) {
 // REGISTER USER
 function register(){
 	// call these variables with the global keyword to make them available in function
-	global $db, $errors, $username, $email;
+	global $db, $errors, $username, $email, $adress, $cell, $bday;
 
 	// receive all input values from the form. Call the e() function
     // defined below to escape form values
 	$username    =  e($_POST['username']);
 	$email       =  e($_POST['email']);
+	$adress      = e($_POST['adress']);
+	$cell        = e($_POST['cell']);
+	$bday        = e($_POST['bday']);
 	$password_1  =  e($_POST['password_1']);
 	$password_2  =  e($_POST['password_2']);
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
-		array_push($errors, "Username is required"); 
+		array_push($errors, "Fult navn er nødvendig!"); 
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		array_push($errors, "Email er nødvendig!"); 
+	}
+	if (empty($adress)) { 
+		array_push($errors, "Adresse er nødvendig!"); 
+	}
+	if (empty($cell)) { 
+		array_push($errors, "Telefonnummer er nødvendig!"); 
+	}
+	if (empty($bday)) { 
+		array_push($errors, "Fødselsdato er nødvendig!"); 
 	}
 	if (empty($password_1)) { 
-		array_push($errors, "Password is required"); 
+		array_push($errors, "Passord er nødvendig!"); 
 	}
 	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
+		array_push($errors, "Passordene samsvarer ikke!");
 	}
 
 	// register user if there are no errors in the form
@@ -46,14 +61,14 @@ function register(){
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', '$user_type', '$password')";
+			$query = "INSERT INTO users (username, email, user_type, password, adress, cell, bday) 
+					  VALUES('$username', '$email', '$user_type', '$password', '$adress', '$cell', '$bday')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', 'user', '$password')";
+			$query = "INSERT INTO users (username, email, user_type, password, adress, cell, bday) 
+					  VALUES('$username', '$email', 'user', '$password', '$adress', '$cell', '$bday')";
 			mysqli_query($db, $query);
 
 			// get id of the created user

@@ -38,7 +38,7 @@
 					<?php echo display_error(); ?>
 
 					<span>Legg til din email</span>
-					<input type="text" name="username" placeholder="Ditt navn" required>
+					<input type="text" name="username" placeholder="Din email" required>
 
 					<span>Skriv inn passord</span>
 					<input type="password" name="password" placeholder="Ditt passord" required>

@@ -51,13 +51,13 @@
 				<input type="email" name="email" placeholder="Din epost" value="<?php echo $email; ?>">
 
 				<span>Adresse</span>
-				<input type = "text" name ="adresse" placeholder="Din adresse" value ="">
+				<input type="text" name="adresse" placeholder="Din adresse" value="<?php echo $adress; ?>">
 
 				<span>Telefonnummer</span>
-				<input type = "tel" name ="telefonnummer" placeholder="Ditt telefonnummer" value ="">
+				<input type="tel" name="telefonnummer" placeholder="Ditt telefonnummer" value="<?php echo $cell; ?>">
 
 				<span>Fødselsdato</span>
-				<input type = "date" name ="fdato" value ="">
+				<input type="date" name="fdato" value="<?php echo $bday; ?>">
 
 				<span>Passord</span>
 				<input type="password" name="password_1">
@@ -66,18 +66,16 @@
 				<input type="password" name="password_2">
 
 				<button type="submit" class="btn" name="register_btn">Register</button>
-
-
+				
 				<p>
 					Allerede en bruker? <a href="log-in.php">Logg inn</a>
 				</p>
-			</form>
 
-
-			<!-- logg inn img -->
-			<div class="login-image">
-				<img src="./Assets/Images/Mobile login-rafiki.png" alt="">
-			</div>
+				
+				<!-- logg inn img -->
+				<div class="login-image">
+					<img src="./Assets/Images/Mobile login-rafiki.png" alt="">
+				</div>
 		</div>
 	</div>
 
