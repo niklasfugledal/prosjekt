@@ -14,7 +14,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsiv Hybelutleie for Studenter ved UiA</title>
     <!-- LINK TIL CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Box ikoner-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -44,7 +44,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
                 <a class = 'btn' href="logout.php">Log out</a>
                 
             <?php } else { ?>
-                <a class = 'btn' href="login.php">Login</a>
+                <a class = 'btn' href="log-in.php">Login</a>
             <?php } ?>
             <?php
             
@@ -62,7 +62,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
     <section class="home container" id="home">
         <div class="home-text">
             <h1>Finn den perfekte <br> hybelen for akkurat <br> deg!</h1>
-            <a href="sign-up.php" class="btn">Registrer her</a>
+            <a href="register.php" class="btn">Registrer her</a>
         </div>
     </section>
     <!--om oss-->
@@ -124,7 +124,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
             </div>
             <!-- Box 2 -->
             <div class="box">
-                <img src="/Assets/Images/enkeltmann hybel.png" alt="">
+                <img src="/Assets/Images/studenthybel enkeltmann.png" alt="">
                 <h3>3699kr mnd</h3>
                 <div class="content">
                     <div class="text">

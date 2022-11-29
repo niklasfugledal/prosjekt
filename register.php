@@ -23,7 +23,7 @@
 
 		<div class="nav container">
 			<!-- logo -->
-			<a href="indexx.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
+			<a href="index.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
 
 			<!-- Logg inn knapp -->
 			<a href="register.php" class="btn">Registrer</a>
@@ -34,7 +34,7 @@
 	<div class="login container">
 		<div class="login-container">
 			<h2>Velkommen!</h2>
-			<p>Allerede en bruker? <a href="login.php">Logg inn</a></p>
+			<p>Allerede en bruker? <a href="log-in.php">Logg inn</a></p>
 			<!--Logg inn form-->
 
 
@@ -51,13 +51,13 @@
 				<input type="email" name="email" placeholder="Din epost" value="<?php echo $email; ?>">
 
 				<span>Adresse</span>
-				<input type="text" name="adresse" placeholder="Din adresse" value="<?php echo $adress; ?>">
+				<input type="text" name="adress" placeholder="Din adresse" value="<?php echo $adress; ?>">
 
 				<span>Telefonnummer</span>
-				<input type="tel" name="telefonnummer" placeholder="Ditt telefonnummer" value="<?php echo $cell; ?>">
+				<input type="tel" name="cell" placeholder="Ditt telefonnummer" value="<?php echo $cell; ?>">
 
 				<span>Fødselsdato</span>
-				<input type="date" name="fdato" value="<?php echo $bday; ?>">
+				<input type="date" name="bday" value="<?php echo $bday; ?>">
 
 				<span>Passord</span>
 				<input type="password" name="password_1">

@@ -16,12 +16,33 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Hjemmeside</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
 </head>
 <body>
+	   <!--Navbar-->
+	   <header>
+        <div class="nav container">
+            <!-- logo -->
+            <a href="indexx.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
+            <!--Menu icon-->
+            <input type="checkbox" name="" id="menu">
+            <label for="menu" <i class='bx bx-menu'></i></label>
+            <!-- Nav list-->
+            <ul class="navbar">
+                <li><a href="#Hjem">Hjem</a></li>
+                <li><a href="#Omoss">Om oss</a></li>
+                <li><a href="#Utleie">Utleie</a></li>
+                <li><a href="#Hybler">Hybler</a></li>
+            </ul>
+		</div>
+</header>
+
 	<div class="header">
-		<h2>Home Page</h2>
+		<h2>Hjemmeside</h2>
 	</div>
 	<div class="content">
 		<!-- notification message -->
@@ -37,7 +58,7 @@ if (isset($_GET['logout'])) {
 		<?php endif ?>
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="images/user_profile.png"  >
+			<img src="./Assets/Images/user.jpg">
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>

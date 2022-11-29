@@ -30,6 +30,18 @@
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email; ?>">
 		</div>
+		<div class = "input-group">
+			<label>Adresse</label>
+			<input type = "text" name ="adress" value="<?php echo $adress; ?>">
+		</div>
+		<div class = "input-group">
+			<label>Telefonnummer</label>
+			<input type = "tel" name ="cell" value="<?php echo $cell; ?>">
+		</div>
+		<div class = "input-group">
+			<label>Fødselsdato</label>
+			<input type = "date" name ="bday" value="<?php echo $bday; ?>">
+		</div>
 		<div class="input-group">
 			<label>User type</label>
 			<select name="user_type" id="user_type" >

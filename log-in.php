@@ -21,7 +21,7 @@
 	<header>
 		<div class="nav container">
 			<!-- logo -->
-			<a href="indexx.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
+			<a href="index.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
 
 			<!-- Logg inn knapp -->
 			<a href="register.php" class="btn">Registrer</a>

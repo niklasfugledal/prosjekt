@@ -24,6 +24,7 @@ function register(){
 
 	// receive all input values from the form. Call the e() function
     // defined below to escape form values
+	
 	$username    =  e($_POST['username']);
 	$email       =  e($_POST['email']);
 	$adress      = e($_POST['adress']);
@@ -61,8 +62,8 @@ function register(){
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, email, user_type, password, adress, cell, bday) 
-					  VALUES('$username', '$email', '$user_type', '$password', '$adress', '$cell', '$bday')";
+			$query = "INSERT INTO users (username, email, user_type, password) 
+					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
