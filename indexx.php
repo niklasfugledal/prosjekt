@@ -74,5 +74,56 @@ if (isset($_GET['logout'])) {
 			</div>
 		</div>
 	</div>
+
+	<h1>Bruker informasjon</h1>
+<div class="header">
+        <h3>Please Fill-out All Fields</h3>
+        <form method="post" action="#" >
+          <div class="input-group">
+            <label>Brukernavn</label>
+            <input type="text" name="username" placeholder="Enter your Fullname" value="<?php echo $row['username']; ?>" required />
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Enter your Gender" required value="<?php echo $row['email']; ?>" />
+          </div>
+          <div class="input-group">
+            <label>Adresse</label>
+            <input type="text" name="adress" placeholder="Enter your Age" value="<?php echo $row['adress']; ?>">
+          </div>
+          <div class="input-group">
+            <label>Telefonnummer</label>
+            <input type="tel" name="cell" required placeholder="Enter your Address" value="<?php echo $row['cell']; ?>"></textarea>
+          </div>
+		  <div class="input-group">
+            <label>Fødselsdato</label>
+            <input type="date" name="bday" required placeholder="Enter your Address" value="<?php echo $row['bday']; ?>"></textarea>
+          </div>
+          <div class="input-group">
+            <input type="submit" name="submit" class="btn">
+          </div>
+        </form>
+      </div>
 </body>
 </html>
+
+<?php
+      if(isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $adress = $_POST['adress'];
+        $cell = $_POST['cell'];
+		$bday = $_POST['bday'];
+
+      $query = "UPDATE users SET username = '$username',
+                      email = '$email', adress = $adress, cell = '$cell', bday = '$bday'
+                      WHERE user_id = '$id'";
+                    $result = mysqli_query($db, $query) or die(mysqli_error($db));
+                    ?>
+                     <script type="text/javascript">
+            alert("Update Successfull.");
+            window.location = "indexx.php";
+        </script>
+        <?php
+             }               
+?>
