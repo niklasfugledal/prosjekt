@@ -1,9 +1,14 @@
-<?php include_once('C:\xampp\htdocs\Prosjekt/functions.php'); ?>
+<?php 
+include_once('C:\xampp\htdocs\Prosjekt\Includes/Database.php');
+include_once('C:\xampp\htdocs\Prosjekt\Sites\Registration/functions.php');	
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Registration system PHP and MySQL - Create user</title>
-	<link rel="stylesheet" type="text/css" href="../styles.css">
+	<link rel="stylesheet" type="text/css" href="../../Prosjekt/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../../Prosjekt/css/style.css">
+	
 	<style>
 		.header {
 			background: #003366;
