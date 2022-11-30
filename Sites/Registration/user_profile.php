@@ -13,9 +13,6 @@ if (isset($_GET['logout'])) {
 	header("location: log-in.php");
 }
 
-
-
-
 ?>
 
 
@@ -76,7 +73,7 @@ if (isset($_GET['logout'])) {
 						<i style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
 						<br>
 						<a href="user_profile.php?logout='1'" style="color: red;">logout</a><br>
-						<a href ="edit-profile.php" style ="color: blue;">Rediger profil</a>
+						<a href ="profile_edit.php" style ="color: blue;">Rediger profil</a>
 					</small>
 
 				<?php endif ?>

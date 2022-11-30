@@ -1,23 +1,23 @@
 <?php 
-include('../functions.php');
+include('C:\xampp\htdocs\Prosjekt\Sites\Registration/functions.php');
 
 if (!isAdmin()) {
 	$_SESSION['msg'] = "Du må logge inn først!";
-	header('location: ../log-in.php');
+	header('location: ../../../Sites/Registration/log-in.php');
 }
 
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header("location: ../log-in.php");
+	header("location: ../../../Sites/Registration/log-in.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../Prosjekt/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../../Prosjekt/css/style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
 	<style>
@@ -35,7 +35,7 @@ if (isset($_GET['logout'])) {
     <header>
         <div class="nav container">
             <!-- logo -->
-            <a href="indexx.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
+            <a href="../Sites/registration/index.php" class="logo"><i class='bx bx-home'></i>Uia hybel</a>
             <!--Menu icon-->
             <input type="checkbox" name="" id="menu">
             <label for="menu" <i class='bx bx-menu'></i></label>
@@ -77,7 +77,7 @@ if (isset($_GET['logout'])) {
 					<small>
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="home.php?logout='1'" style="color: red;">logout</a>
+						<a href="home.php?logout='1'"style="color: red;">logout</a>
                        &nbsp; <a href="create_user.php"> + add user</a>
 					</small>
 

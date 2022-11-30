@@ -153,7 +153,7 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Logget inn!";
-				header('location: ./admin/home.php');		  
+				header('location: ../../Admin/home.php');		  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Logget inn!";

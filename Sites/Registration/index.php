@@ -2,8 +2,6 @@
 
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['email']))
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +36,22 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
             </ul>
             <!-- Logg inn knapp -->
             <a href="log-in.php" class="btn">Logg inn</a>
+
+            <?php
+            if (isset($_SESSION['loggedin']) && isset($_SESSION['username']))
+            {
+                $user_logged = true;
+            
+                    if ($user_logged) { ?>
+                        <li class="nav-item mr-sm-2">
+                            <a class="btn" href="components/user/logout.php"><span><i class="btn"></i></span>Logg ut</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item mr-sm-2">
+                            <a class="btn" href="components/user/login.php"><span><i class="btn"></i></span>Logg inn</a>
+                        </li>
+                    <?php } 
+                    }?>
             
         </div>
 
