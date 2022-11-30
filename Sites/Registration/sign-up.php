@@ -1,3 +1,5 @@
+ines (136 sloc)  6.39 KB
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,31 +93,26 @@
             ?>
 
             <form action="" method="post">
-                <span>Fult navn</span>
+               
                 <input type="text" name="fullName" placeholder="Fult navn" required oninvalid="this.setCustomValidity('Fyll inn fult navn')" oninput="this.setCustomValidity('')" />
                 <span class="invalide-feedback"> <?php echo isset($user_err) ? $user_err : null; ?> </span>
 
 
-                <span>Legg til din email</span>
+                
                 <input type="email" name="email" placeholder ="Email" required oninvalid="this.setCustomValidity('Fyll inn email')" oninput="this.setCustomValidity('')" />
                 <span class="invalide-feedback"> <?php echo isset($email_err) ? $email_err : null; ?> </span>
 
-                <span>Passord</span>
+                
                 <input type="password" class="form-control" placeholder="Password" name="pass1" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
                 <span class="invalide-feedback"> <?php echo isset($pass_err) ? $pass_err : null; ?> </span>
 
-                <span>Bekreft passord</span>
+                
                 <input type="password" class="form-control" placeholder="Password" name="pass2" required oninvalid="this.setCustomValidity('Fyll inn et passord')" oninput="this.setCustomValidity('')">
 
 
 
                 <input type="submit" name="submit" value="Registrer" class="buttom">
 
-
-
-                <a href="login.php">Allerede en bruker?</a>
-            </form>
-            <a href="login.php" class="btn">Logg inn</a>
         </div>
         <!-- logg inn img -->
         <div class="login-image">
