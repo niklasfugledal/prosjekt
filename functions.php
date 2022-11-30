@@ -77,7 +77,7 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
 			$_SESSION['success']  = "You are now logged in";
-			header('location: indexx.php');				
+			header('location: user_profile.php');				
 		}
 	}
 }
@@ -158,7 +158,7 @@ function login(){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Logget inn!";
 
-				header('location: indexx.php');
+				header('location: user_profile.php');
 			}
 		}else {
 			array_push($errors, "Feil navn eller passord!");

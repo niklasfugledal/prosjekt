@@ -37,24 +37,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
                 <li><a href="#Hybler">Hybler</a></li>
             </ul>
             <!-- Logg inn knapp -->
-
-            <?php
-        if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
-            ?>
-                <a class = 'btn' href="logout.php">Log out</a>
-                
-            <?php } else { ?>
-                <a class = 'btn' href="log-in.php">Login</a>
-            <?php } ?>
-            <?php
+            <a href="log-in.php" class="btn">Logg inn</a>
             
-            if(isset($_SESSION['fullName']))
-            {
-                $fullName = $_SESSION['fullName'];
-                echo "<a class = 'btn' href = 'profile.php'>". $_SESSION['fullName'] . "</a>"; // <p> = Klassen som skal styles
-            }
-
-            ?>
         </div>
 
     </header>
