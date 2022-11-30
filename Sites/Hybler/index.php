@@ -1,12 +1,12 @@
 <?php
-require_once('C:\xampp\htdocs\Prosjekt\is-115-prosjekt-1\Sites\Registration/Database.php');
+require_once('C:\xampp\htdocs\Prosjekt\Includes/Database.php');
 
 
 // Initialize the session
 session_start();
 
 ?>
-<?php require('includes/header.php') ?>
+<?php require('C:\xampp\htdocs\Prosjekt\Sites\Hybler\Hybel.inc/header.php') ?>
 <div class="d-flex mt-4 mx-4">
 	<h3 class="row">Welcome,&nbsp;
 		<b><?php // check user login and output username

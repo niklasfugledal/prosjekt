@@ -9,7 +9,7 @@
 	<title>Logg inn</title>
 	
 	<!-- LINK TIL CSS-->
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="../../css/style.css">
 	<!-- Box ikoner-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 

@@ -24,8 +24,8 @@ if (isset($_GET['logout'])) {
 
 <head>
 	<title>Hjemmeside</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
 </head>

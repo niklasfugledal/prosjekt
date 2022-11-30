@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -30,7 +30,7 @@
                 //print_r($row);
     ?>
                 <div class="container">
-                    <h2>Oppdater brukerinformasjon</h2>
+                    <h2 style = "text-align: center;">Oppdater brukerinformasjon</h2>
 
                     <form method="POST" action="#">
 
@@ -62,7 +62,7 @@
                             <label for="pwd"> Bekreft Passord:</label>
                             <input type="password" class="form-control" id="pwd" value="<?php echo $row["password"]; ?>  " placeholder="Bekreft Passord" name="password_2">
                         </div>
-                        <button type="submit" name="submit" class="btn">Submit</button>
+                        <button type="submit" name="submit" class="btn">Oppdater</button>
                     </form>
 
                 </div>
@@ -72,6 +72,9 @@
             }
         }
     }
+    ?>
+    <?php
+    
     ?>
 
 

@@ -1,5 +1,5 @@
 <?php
-require_once('C:\xampp\htdocs\Prosjekt\IS-115-Prosjekt-1\Sites\Registration/Database.php');
+require_once('');
 
 
 // Initialize the session

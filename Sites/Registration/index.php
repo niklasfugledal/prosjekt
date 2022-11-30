@@ -14,7 +14,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsiv Hybelutleie for Studenter ved UiA</title>
     <!-- LINK TIL CSS-->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- Box ikoner-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
