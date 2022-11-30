@@ -1,21 +1,51 @@
-<div class="col-md-4 col-sm-6 my-4">
-	<div class="card m-auto house" style="width: 20rem;">
-		<img class="card-img-top" src="<?= $server; ?>img/house/<?php echo $r['image']; ?>" alt="Card Image Caption">
-		<div class="card-body">
-			<h4 class="card-title"><?php echo $r['location']; ?></h4>
-			<p class="card-text"><?php echo $r['description']; ?></p>
-
-			<div style="display: flex; justify-content: space-between; align-items: center;">
-				<div style="font-weight: 600;"><span class="price"><?php echo $r['price']; ?>,-</span></div>
-
-				<!-- Button add to cart -->
-				<button data-houseid="<?php echo $r['id']; ?>" type="button" class="btn btn-success rent-btn" onclick="location='../hybler/viewHouse.php'">
-					<span class="text-white">
-						<i class="fa fa-shopping-cart text-white"></i>
-						Info
-					</span>
-				</button>
-			</div>
-		</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<div class="container text-center">    
+  <h3>Leilighetsinformasjon</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="<?= $server; ?>./img/house/<?php echo $data['image']; ?>" class="img-responsive" style="width:100%" alt="Image">
+      <p>Bilde av hybelen</p>
 	</div>
-</div>
+
+    <div class="col-sm-4"> 
+    <div class="Spesifikasjoner">
+      <p class="house-longdesc"><?= $data['long_description']?></p>     <?php  //trenger ikke echo ?>
+    </div>
+    <div class="Primary">
+       <p>Primærrom: <?= $data['primary_room']?></p>
+      </div>
+      <div class="Bedroom">
+       <p>Soverom: <?= $data['bedroom']?></p>
+      </div>
+      <div class="Floor">
+       <p>Etasje: <?= $data['floor']?></p>
+      </div>
+      <div class="Price">
+       <p>Pris:<?= $data['price']?>,- per måned</p>
+      </div>
+      <div class="Rent-period">
+       <p>Leieperiode: <?= $data['rent_start']?> - <?= $data['rent_end']?></p>
+  </div>
+  </div>
+
+    <div class="col-sm-4">
+    <div class="Info">
+       <p>Ytterligere informasjon</p>
+      </div>
+      <div class="Owner">
+       <p>Kontaktperson: <?= $data['owner']?></p>
+      </div>
+      <div class="Owner-email">
+       <p>E-mail: <?= $data['owner_email']?></p>
+      </div>
+      <div class="Owner-phone">
+       <p>Telefon:<?= $data['owner_phone']?></p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+</body>
+</html>	

@@ -1,6 +1,6 @@
 <?php
 
-$server = 'http://' . $_SERVER['SERVER_NAME'] . '/prosjekt/is-115-prosjekt-1/sites/hybler/';
+$server = 'http://' . $_SERVER['SERVER_NAME'] . '/prosjekt/sites/hybler/';
 
 $user_logged = false;
 
