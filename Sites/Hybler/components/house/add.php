@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 require_once('.');
+=======
+require_once('../../../Registration/Database.php');
+>>>>>>> main
 
 // Initialize the session
 session_start();
@@ -14,9 +18,15 @@ if (isset($_POST) & !empty($_POST)) {
 	$location = ($_POST['location']);
 	$price = ($_POST['price']);
 	$description = ($_POST['description']);
+	$long_description = ($_POST['long_description']);
 	$owner = ($_POST['owner']);
-
-
+	$owner_email = ($_POST['owner_email']);
+	$owner_phone = ($_POST['owner_phone']);
+	$primary_room = ($_POST['primary_room']);
+	$bedroom = ($_POST['bedroom']);
+	$floor = ($_POST['floor']);
+	$rent_start =  ($_POST['rent_start']);
+	$rent_end = ($_POST['rent_end']);
 	// store n upload image
 	$image = $_FILES['image']['name'];
 	$dir = "../../img/house/";
@@ -31,7 +41,23 @@ if (isset($_POST) & !empty($_POST)) {
 
 
 	// Execute query
-	$query = "INSERT INTO `houses` (location, price, description, owner, image) VALUES ('$location', '$price', '$description', '$owner','$image')";
+	$query = "INSERT INTO `houses` (
+		location, 
+		price, 
+		description, 
+		long_description,
+		owner, 
+		owner_email, 
+		owner_phone, 
+		primary_room, 
+		bedroom,
+		floor,
+		rent_start,
+		rent_end,
+		image) 
+		
+		VALUES ('$location', '$price', '$description', '$long_description', '$owner','$owner_email','$owner_phone','$primary_room','$bedroom', '$floor', '$rent_start', '$rent_end', '$image')";
+
 	$res = mysqli_query($conn, $query);
 	if ($res) {
 		header('location: view.php');
@@ -59,12 +85,44 @@ if (isset($_POST) & !empty($_POST)) {
 			<input type="text" class="form-control" name="price" value="" required />
 		</div>
 		<div class="form-group">
-			<label>Description</label>
+			<label>Short Description</label>
+			<textarea type="text" class="form-control" name="description" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Long Description</label>
 			<textarea type="text" class="form-control" name="description" value="" required></textarea>
 		</div>
 		<div class="form-group">
 			<label>Owner</label>
 			<textarea type="text" class="form-control" name="owner" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Owner Email</label>
+			<textarea type="email" class="form-control" name="owner_email" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Owner Phone number</label>
+			<textarea type="phone" class="form-control" name="owner_phone" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Primary room size</label>
+			<textarea type="text" class="form-control" name="primary_room" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Bedroom size</label>
+			<textarea type="text" class="form-control" name="bedroom" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Floor location</label>
+			<textarea type="text" class="form-control" name="floor" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Rent Start</label>
+			<input type="date" class="form-control" name="rent_start" value="" required></textarea>
+		</div>
+		<div class="form-group">
+			<label>Rent end</label>
+			<input type="date" class="form-control" name="rent_end" value="" required></textarea>
 		</div>
 		<div class="form-group">
 			<label>Image</label>

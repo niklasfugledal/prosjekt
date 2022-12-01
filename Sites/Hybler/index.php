@@ -1,5 +1,5 @@
 <?php
-require_once('C:\xampp\htdocs\Prosjekt\Includes/Database.php');
+require_once('C:\xampp\htdocs\Prosjekt\is-115-prosjekt-1\Sites\Registration/Database.php');
 
 
 // Initialize the session
@@ -49,8 +49,9 @@ session_start();
 		// output data of each row
 		while ($num_of_rows > 0) {
 			$num_of_rows--;
-			$r = mysqli_fetch_assoc($res);
+			$data = mysqli_fetch_assoc($res);
 			include('includes/house.php');
+			
 		}
 	} else {
 		echo '<div class="container">No Houses Available</div>';
