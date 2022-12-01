@@ -1,17 +1,13 @@
 <?php
-<<<<<<< HEAD
-require_once('');
-=======
 require_once('../Registration/Database.php');
->>>>>>> main
 
 
 // Initialize the session
 session_start();
 $house_id = $_GET['house'];
 ?>
-<?php require('includes/header.php');
-      require('../Registration/Database.php')
+<?php require('../Hybler/Hybel.inc/header.php');
+     
 ?>
 
 
@@ -27,7 +23,7 @@ $house_id = $_GET['house'];
     }
     } 
     $data = mysqli_fetch_assoc($result);
-    include('includes/houseInfo.php');
+    include('i../../Hybel.inc/houseInfo.php');
 ?>
 
 
@@ -35,4 +31,4 @@ $house_id = $_GET['house'];
 
 
 
-<?php require('includes/footer.php') ?>
+<?php require('../Hybler/Hybel.inc/footer.php'); ?>

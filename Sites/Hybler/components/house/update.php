@@ -69,7 +69,7 @@ if (isset($_POST) & !empty($_POST)) {
 }
 ?>
 
-<?php require_once('../../includes/header.php') ?>
+<?php require_once('../../Hybel.inc/header.php') ?>
 
 <div class="container">
 	<?php if (isset($fmsg)) { ?><div class="alert alert-danger" role="alert"> <?php echo $fmsg; ?> </div><?php } ?>
@@ -133,4 +133,4 @@ if (isset($_POST) & !empty($_POST)) {
 	</form>
 </div>
 
-<?php require_once('../../includes/footer.php') ?>
+<?php require_once('../../Hybel.inc/footer.php') ?>

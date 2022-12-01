@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $conn->close();
 }
 ?>
-<?php require('../../includes/header.php') ?>
+<?php require('../../Hybel.inc/header.php'); ?>
 
     <div class="wrapper mx-auto">
         <h2>Login</h2>
@@ -113,4 +113,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>    
 
-<?php require('../../includes/footer.php') ?>
+<?php require('../../Hybel.inc/footer.php') ?>

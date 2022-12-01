@@ -15,7 +15,7 @@ $res = mysqli_query($conn, $ReadSql);
 
 ?>
 
-<?php require('../../includes/header.php') ?>
+<?php require('../../Hybel.inc/header.php') ?>
 <div class="container-fluid my-4">
 	<div class="row my-2">
 		<h2>House Rental Management System - Houses</h2>
@@ -102,4 +102,4 @@ $res = mysqli_query($conn, $ReadSql);
 
 
 
-<?php require('../../includes/footer.php') ?>
+<?php require('../../Hybel.inc/footer.php') ?>

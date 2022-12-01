@@ -17,6 +17,7 @@ $user_logged = false;
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="<?php echo $server; ?>css/style.css">
+	
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -37,10 +38,10 @@ $user_logged = false;
 <body>
 	<header class="d-flex w-100">
 		<nav class="navbar navbar-expand-lg w-100 bg-light">
-			<div class="navbar-collapse collapse justify-content-between">
+			<div class="nav container">
 				<ul class="navbar-nav" id="navbar">
 					<li class="nav-item active">
-						<a class="nav-link text-dark" href="<?php echo $server; ?>index.php">
+						<a class="nav container text-dark" href="<?php echo $server; ?>index.php">
 							<i class="fa fa-home text-dark"></i> House Rental</a>
 					</li>
 
@@ -48,10 +49,10 @@ $user_logged = false;
 						$user_logged = true;
 						if ($_SESSION['type'] == 'admin') { ?>
 							<li class="nav-item">
-								<a class="nav-link text-dark" href="<?php echo $server; ?>components/house/view.php">Houses</a>
+								<a class="nav container text-dark" href="<?php echo $server; ?>components/house/view.php">Houses</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-dark" href="<?php echo $server; ?>components/record/view.php">Renters</a>
+								<a class="nav container text-dark" href="<?php echo $server; ?>components/record/view.php">Renters</a>
 							</li>
 					<?php }
 					} ?>
@@ -72,12 +73,17 @@ $user_logged = false;
 					<?php
 					if ($user_logged) { ?>
 						<li class="nav-item mr-sm-2">
+							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/profile.php"><span><i class="fa fa-sign-out text-white"></i></span>Profil</a>
+						</li>
+						<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/logout.php"><span><i class="fa fa-sign-out text-white"></i></span>Sign Out</a>
 						</li>
 					<?php } else { ?>
+						
 						<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-primary text-white" href="<?php echo $server; ?>components/user/login.php"><span><i class="fa fa-sign-in text-white"></i></span> Sign In</a>
 						</li>
+
 					<?php } ?>
 				</ul>
 			</div>

@@ -9,6 +9,9 @@ $email_err = $password_err = $confirm_password_err = "";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = trim($_POST["name"]);
+    $adress= trim($_POST['adress']);
+    $cell = trim($_POST['cell']);
+    $bday = trim($_POST['bday']);
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
@@ -22,6 +25,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_email = trim($_POST["email"]);
+            $param_adress = trim($_POST["adress"]);
+            $param_cell = trim($_POST["cell"]);
+            $param_bday = trim($_POST["bday"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -65,15 +71,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, adress, cell, bday, password) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
         if($stmt){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_email, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_name, $param_email, $param_adress, $param_cell, $param_bday, $param_password);
             
             // Set parameters
             $param_name = $name;
             $param_email = $email;
+            $param_adress = $adress;
+            $param_cell = $cell;
+            $param_bday = $bday;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             // Attempt to execute the prepared statement
@@ -95,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-<?php require('../../includes/header.php') ?>
+<?php require('../../Hybel.inc/header.php') ?>
 
     <div class="wrapper mx-auto">
         <h2>Sign Up</h2>
@@ -109,6 +118,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label>Email</label>
                 <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
                 <span class="help-block"><?php echo $email_err; ?></span>
+            </div>    
+            <div class="form-group">
+                <label>Adresse</label>
+                <input type="text" name="adress" class="form-control" value="">
+            </div>    
+            <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="tel" name="cell" class="form-control" value="">
+            </div>    
+            <div class="form-group">
+                <label>Fødselsdato</label>
+                <input type="date" name="bday" class="form-control" value="">
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
@@ -128,4 +149,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>    
 
-<?php require('../../includes/footer.php') ?>
+<?php require('../../../Hybler/Hybel.inc/footer.php') ?>
