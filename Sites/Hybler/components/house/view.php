@@ -1,6 +1,6 @@
 <?php
 
-require_once('C:\xampp\htdocs\Prosjekt\IS-115-Prosjekt-1\Sites\Registration/Database.php');
+require_once('../../../Registration/Database.php');
 
 // Initialize the session
 session_start();
@@ -28,34 +28,49 @@ $res = mysqli_query($conn, $ReadSql);
 				<th>Location</th>
 				<th>Price</th>
 				<th>Description</th>
+				<th>Long Description</th>
 				<th>Owner</th>
+				<th>Owner Email</th>
+				<th>Owner Phone</th>
+				<th>Primary Room</th>
+				<th>Bedroom</th>
+				<th>Floor</th>
 				<th>Date Added</th>
-				<th>Actions</th>
+				<th>Rent Start</th>
+				<th>Rental End</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-			while ($r = mysqli_fetch_assoc($res)) {
+			while ($data = mysqli_fetch_assoc($res)) {
 			?>
 				<tr>
-					<th scope="row"><?php echo $r['id']; ?></th>
-					<td><?php echo $r['location']; ?></td>
-					<td><?php echo $r['price']; ?></td>
-					<td><?php echo $r['description']; ?></td>
-					<td><?php echo $r['owner']; ?></td>
+					<th scope="row"><?php echo $data['id']; ?></th>
+					<td><?php echo $data['location']; ?></td>
+					<td><?php echo $data['price']; ?></td>
+					<td><?php echo $data['description']; ?></td>
+					<td><?php echo $data['long_description']; ?></td>
+					<td><?php echo $data['owner']; ?></td>
+					<td><?php echo $data['owner_email']; ?></td>
+					<td><?php echo $data['owner_phone']; ?></td>
+					<td><?php echo $data['primary_room']; ?></td>
+					<td><?php echo $data['bedroom']; ?></td>
+					<td><?php echo $data['floor']; ?></td>
 					<td><?php
-						$date = new DateTime($r['date_added']);
+						$date = new DateTime($data['date_added']);
 						echo $date->format('Y-m-d');
 						?>
-					</td>
+					</td>	
+					<td><?php echo $data['rent_start']; ?></td>
+					<td><?php echo $data['rent_end']; ?></td>
 
 					<td>
-						<a href="update.php?id=<?php echo $r['id']; ?>"><button type="button" class="btn btn-info">Edit</button></a>
+						<a href="update.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-info">Edit</button></a>
 
-						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $r['id']; ?>">Delete</button>
+						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Delete</button>
 
 						<!-- Modal -->
-						<div class="modal fade" id="myModal<?php echo $r['id']; ?>" role="dialog">
+						<div class="modal fade" id="myModal<?php echo $data['id']; ?>" role="dialog">
 							<div class="modal-dialog">
 
 								<!-- Modal content-->
@@ -71,7 +86,7 @@ $res = mysqli_query($conn, $ReadSql);
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<a href="delete.php?id=<?php echo $r['id']; ?>"><button type="button" class="btn btn-danger"> Yes, Delete</button></a>
+										<a href="delete.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-danger"> Yes, Delete</button></a>
 									</div>
 								</div>
 
