@@ -47,7 +47,7 @@ $user_logged = false;
 
 					<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						$user_logged = true;
-						if ($_SESSION['type'] == 'admin') { ?>
+						if ($_SESSION['type'] == 'admin' || 'owner' || 'renter') { ?>
 							<li class="nav-item">
 								<a class="nav container text-dark" href="<?php echo $server; ?>components/house/view.php">Houses</a>
 							</li>
@@ -63,13 +63,14 @@ $user_logged = false;
 					<input type="text" value="<?= $_SESSION['id'] ?>" id="userID" hidden />
 				<?php }
 				?>
-				<ul class="navbar-nav">
+				<!-- <ul class="navbar-nav">
 					<form class="d-flex my-2 my-lg-0" action="<?php echo $server; ?>templates/searchForm.php" method="post">
 						<input class="form-control mr-sm-2" type="text" name="term" aria-label="Search" required>
 						<button type="submit" class="btn btn-primary m-2 my-sm-0" value="Submit">Search</button>
 					</form>
 				</ul>
-				<ul class="navbar-nav">
+				<ul class="navbar-nav">-->
+					
 					<?php
 					if ($user_logged) { ?>
 						<li class="nav-item mr-sm-2">

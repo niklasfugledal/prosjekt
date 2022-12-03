@@ -12,6 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $adress= trim($_POST['adress']);
     $cell = trim($_POST['cell']);
     $bday = trim($_POST['bday']);
+    $type = trim($_POST['type']);
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
@@ -28,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_adress = trim($_POST["adress"]);
             $param_cell = trim($_POST["cell"]);
             $param_bday = trim($_POST["bday"]);
+            $param_type = trim($_POST["type"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -71,11 +73,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (name, email, adress, cell, bday, password) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, adress, cell, bday, password, type) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
         if($stmt){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_name, $param_email, $param_adress, $param_cell, $param_bday, $param_password);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_name, $param_email, $param_adress, $param_cell, $param_bday, $param_password, $param_type);
             
             // Set parameters
             $param_name = $name;
@@ -84,6 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_cell = $cell;
             $param_bday = $bday;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_type;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -130,7 +133,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label>Fødselsdato</label>
                 <input type="date" name="bday" class="form-control" value="">
-            </div>    
+            </div>  
+            <div class="form-group">
+			<label>Brukertype</label>
+			<select name="type" id="type" class="form-control" value ="">
+				<option value=""></option>
+				<option value="renter">Bruker</option>
+				<option value="owner">Utleier</option>
+			</select>
+		</div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" required>
