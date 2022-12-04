@@ -90,7 +90,7 @@ if (isset($_POST) & !empty($_POST)) {
 		</div>
 		<div class="form-group">
 			<label>Long Description</label>
-			<textarea type="text" class="form-control" name="long_description" value="<?php echo $data['long_description']; ?>" required></textarea>
+			<textarea type="text" style ="width:100%" class="form-control" name="long_description" value="<?php echo $data['long_description']; ?>" required></textarea>
 		</div>
 		<div class="form-group">
 			<label>Owner</label>

@@ -6,8 +6,12 @@
   <div class="row">
     <div class="col-sm-4">
       <img src="<?= $server; ?>./img/house/<?php echo $data['image']; ?>" class="img-responsive" style="width:100%" alt="Image">
-      <p>Bilde av hybelen</p>
+      
+      <h1>Bilde av hybelen</h1>
+      <button><h2>Se mer</h2></button>
 	</div>
+
+  
 
     <div class="col-sm-4"> 
     <div class="Spesifikasjoner">
