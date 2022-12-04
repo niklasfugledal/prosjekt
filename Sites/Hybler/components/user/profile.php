@@ -45,14 +45,16 @@ session_start();
                     $password = $_POST['password'];
                     $confirm_password = $_POST['confirm_password'];
 
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
                     $updateUser = $_SESSION['id'];
                     $update = "UPDATE users set name='$name',email='$email',adress='$adress', cell = '$cell', bday ='$bday', password='$password', password='$confirm_password' WHERE id='$id'";
                     $updateResult = mysqli_query($conn, $update);
                     $row = mysqli_fetch_assoc($res);
                     $Row['Data'] ??= 'default value';
                     return $Row['Data'];
+                    
+                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+                    if(password_verify($password, $hashed_password)){
+                    }
 
                     $results = mysqli_query($conn, $update);
                     if ($results) {
@@ -60,7 +62,7 @@ session_start();
                         }
                     }
                 }
-                
+
     ?>
                 <div class="container">
                     <h2 style="text-align: center;">Oppdater brukerinformasjon</h2>
