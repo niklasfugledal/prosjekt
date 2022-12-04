@@ -77,6 +77,9 @@ $user_logged = false;
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/profile.php"><span><i class="fa fa-sign-out text-white"></i></span>Profil</a>
 						</li>
 						<li class="nav-item mr-sm-2">
+							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/record/requests.php"><span><i class="fa fa-sign-out text-white"></i></span>Forespørsler</a>
+						</li>
+						<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/logout.php"><span><i class="fa fa-sign-out text-white"></i></span>Sign Out</a>
 						</li>
 					<?php } else { ?>
