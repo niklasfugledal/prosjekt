@@ -51,7 +51,7 @@ session_start();
                     $row = mysqli_fetch_assoc($res);
                     $Row['Data'] ??= 'default value';
                     return $Row['Data'];
-                    
+
                     $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                     if(password_verify($password, $hashed_password)){
                     }
@@ -108,88 +108,11 @@ session_start();
         }
     }
 
-
-
-
-
     ?>
 
     <?php require_once('../../Hybel.inc/header.php') ?>
 
     <div class="container">
         <?php if (isset($fmsg)) { ?><div class="alert alert-danger" role="alert"> <?php echo $fmsg; ?> </div><?php } ?>
-
-
-
-
-        <?php
-
-        ?>
-
-
-        <?php
-        /*
-        if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['type'] == 'admin' || 'owner')) {
-            return;
-        }
-
-        $id = $_GET['id'];
-
-        $sql = "SELECT * FROM `houses` WHERE id=$id";
-        $res = mysqli_query($conn, $sql);
-        $data = mysqli_fetch_assoc($res);
-
-
-        if (isset($_POST) & !empty($_POST)) {
-            $name = ($_POST['name']);
-            $email = ($_POST['email']);
-            $adress = ($_POST['adress']);
-            $cell = ($_POST['cell']);
-            $bday = ($_POST['bday']);
-            $password = ($_POST['password']);
-            $confirm_password = ($_POST['confirm_password']);
-
-            // Execute query
-            $query = "UPDATE `users` 
-	SET name='$name',
-		email='$email',
-		adress='$adress'
-		cell='$cell',
-		bday='$bday',
-        password='$password'
-        confirm_password='$confirm_password'
-	WHERE id='$id'";
-
-
-            $res = mysqli_query($conn, $query); // get result
-            if ($res) {
-                header('location: view.php');
-            } else {
-                $fmsg = "Failed to Insert data.";
-                // print_r($res);
-            }
-        }
-*/
-        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <?php require('../../Hybel.inc/footer.php'); ?>
