@@ -42,10 +42,21 @@
       </div>
       <div class="Owner-phone">
        <p>Telefon:<?= $data['owner_phone']?></p>
+
+       
+       <button data-houseId="<?php echo $data['id']; ?>" type="button" class="btn btn-success .req-btn">
+					<span class="text-white">
+						<i class="fa fa-shopping-cart text-white"></i>
+						Forespør hybel
+					</span>
+				</button>
+
       </div>
     </div>
   </div>
 </div><br>
+
+
 
 </body>
 </html>	

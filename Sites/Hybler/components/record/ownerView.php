@@ -10,58 +10,59 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION
 	return;
 }
 
-	$ReadSql = "SELECT DISTINCT 
+
+$email = $_SESSION["email"];
+
+if($_SESSION['type'] == 'owner') {
+$ReadSql = "SELECT DISTINCT 
 	records.id as id,
 	houses.id as houseId,
 	houses.location as location,
-	houses.owner as owner,
-	houses.price as price,
-	houses.owner_email as owner_email,
-	users.name as name,
-	users.email as user_email
+    houses.price as price,
+	users.email as user_email,
+	users.cell as user_cell,
+	users.name as name
 	FROM records
 	JOIN houses
 	ON records.house_id = houses.id
 	JOIN users
-	ON records.user_id = users.id";
-	
-	$res = mysqli_query($conn, $ReadSql);	
-
+	ON records.user_id = users.id
+	WHERE houses.owner_email = '$email'";
+}	
+$res = mysqli_query($conn, $ReadSql);
 ?>
 
 <?php require('../../includes/header.php') ?>
 <div class="container-fluid my-4">
 	<div class="row my-2">
-		<h2>UiA Hybel - Rent Records</h2>
+		<h2>UiA Hybel - Hvem leier hos deg?</h2>
 	</div>
 	<table class="table ">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>Hybel ID</th>
-				<th>Leietaker</th>
-				<th>Leietakers Email</th>
+				<th>Leid av</th>
 				<th>Lokasjon</th>
                 <th>Pris</th>
-				<th>Hybeleier</th>
-				<th>Hybeleiers Email</th>
+				<th>Leietakers Email</th>
+				<th>Leietakers Tlf.</th>
 				<th>Handlinger</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-
+			
 			while ($data = mysqli_fetch_assoc($res)) {
 			?>
 				<tr>
 					<th scope="row"><?php echo $data['id']; ?></th>
 					<td><?php echo $data['houseId']; ?></td>
 					<td><?php echo $data['name']; ?></td>
-					<td><?php echo $data['user_email']; ?></td>
 					<td><?php echo $data['location']; ?></td>
-					<td><?php echo $data['price']; ?></td>
-					<td><?php echo $data['owner']; ?></td>
-					<td><?php echo $data['owner_email']; ?></td>
+                    <td><?php echo $data['price']; ?></td>
+					<td><?php echo $data['user_email']; ?></td>
+					<td><?php echo $data['user_cell']; ?></td>
 
 					<td>
 						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Delete</button>

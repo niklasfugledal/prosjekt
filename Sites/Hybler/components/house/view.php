@@ -5,13 +5,23 @@ require_once('../../../Registration/Database.php');
 // Initialize the session
 session_start();
 
-if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['type'] == 'admin')) {
+if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['type'] == 'admin' || 'owner')) {
 	echo "Unauthorized Access";
 	return;
 }
+	
+	$email = $_SESSION["email"];
 
-$ReadSql = "SELECT * FROM `houses`";
-$res = mysqli_query($conn, $ReadSql);
+	if($_SESSION['type'] == 'owner') {
+	$ReadSql = "SELECT * FROM `houses` where owner_email = '$email'";
+	$res = mysqli_query($conn, $ReadSql);
+	}
+	else{
+	
+	$ReadSql = "SELECT * FROM `houses`";
+	$res = mysqli_query($conn, $ReadSql);
+
+	}
 
 ?>
 
@@ -43,6 +53,7 @@ $res = mysqli_query($conn, $ReadSql);
 		<tbody>
 			<?php
 			while ($data = mysqli_fetch_assoc($res)) {
+				
 			?>
 				<tr>
 					<th scope="row"><?php echo $data['id']; ?></th>
