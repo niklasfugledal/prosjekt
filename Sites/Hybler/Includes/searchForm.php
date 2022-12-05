@@ -31,4 +31,17 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) {
     </div>
 </div>
 
-<?php require($path . '../../includes/footer.php') ?>
+<!--  searchbar hvis vi får tid
+    
+<ul class="navbar-nav">
+<form class="d-flex my-2 my-lg-0" action="<?php echo $server; ?>templates/searchForm.php" method="post">
+<input class="form-control mr-sm-2" type="text" name="term" aria-label="Search" required>
+<button type="submit" class="btn btn-primary m-2 my-sm-0" value="Submit">Search</button>
+</form>
+</ul>
+<ul class="navbar-nav">  -->
+
+
+
+
+<?php require($path . '../../includes/footer.php')?>

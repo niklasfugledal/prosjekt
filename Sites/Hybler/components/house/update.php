@@ -5,7 +5,7 @@ require_once('../../../Registration/Database.php');
 // Initialize the session
 session_start();
 
-if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['type'] == 'admin')) {
+if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['type'] == 'admin' || 'owner')) {
 	echo "Unauthorized Access";
 	return;
 }
@@ -90,7 +90,7 @@ if (isset($_POST) & !empty($_POST)) {
 		</div>
 		<div class="form-group">
 			<label>Long Description</label>
-			<textarea type="text" class="form-control" name="long_description" value="<?php echo $data['long_description']; ?>" required></textarea>
+			<input type="text" class="form-control" name="long_description" value="<?php echo $data['long_description']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Owner</label>
@@ -98,31 +98,31 @@ if (isset($_POST) & !empty($_POST)) {
 		</div>
 		<div class="form-group">
 			<label>Owner Email</label>
-			<textarea type="email" class="form-control" name="owner_email" value="<?php echo $data['owner_email']; ?>" required></textarea>
+			<input type="email" class="form-control" name="owner_email" value="<?php echo $data['owner_email']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Owner Phone number</label>
-			<textarea type="phone" class="form-control" name="owner_phone" value="<?php echo $data['owner_phone']; ?>" required></textarea>
+			<input type="phone" class="form-control" name="owner_phone" value="<?php echo $data['owner_phone']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Primary room size</label>
-			<textarea type="text" class="form-control" name="primary_room" value="<?php echo $data['primary_room']; ?>" required></textarea>
+			<input type="text" class="form-control" name="primary_room" value="<?php echo $data['primary_room']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Bedroom size</label>
-			<textarea type="text" class="form-control" name="bedroom" value="<?php echo $data['bedroom']; ?>" required></textarea>
+			<input type="text" class="form-control" name="bedroom" value="<?php echo $data['bedroom']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Floor location</label>
-			<textarea type="text" class="form-control" name="floor" value="<?php echo $data['floor']; ?>" required></textarea>
+			<input type="text" class="form-control" name="floor" value="<?php echo $data['floor']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Rent Start</label>
-			<input type="date" class="form-control" name="rent_start" value="<?php echo $data['rent_start']; ?>" required></textarea>
+			<input type="date" class="form-control" name="rent_start" value="<?php echo $data['rent_start']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Rent end</label>
-			<input type="date" class="form-control" name="rent_end" value="<?php echo $data['rent_end']; ?>" required></textarea>
+			<input type="date" class="form-control" name="rent_end" value="<?php echo $data['rent_end']; ?>" required></input>
 		</div>
 		<div class="form-group">
 			<label>Image</label>
