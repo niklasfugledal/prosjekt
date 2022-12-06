@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 session_start();
 
 $id = $_GET['id'];

@@ -1,5 +1,5 @@
 <?php
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 
 $id = $_GET['id'];
 $DelSql = "DELETE FROM `houses` WHERE id=$id";

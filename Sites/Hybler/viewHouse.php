@@ -1,17 +1,15 @@
+
 <?php
-require_once('../Registration/Database.php');
+require_once('../DB/Database.php');
 
 
 // Initialize the session
 session_start();
 $house_id = $_GET['house'];
-?>
-<?php require('includes/header.php');
-      require('../Registration/Database.php')
-?>
 
+ require('includes/header.php');
+      
 
-<?php
 	  
     $query = "SELECT * FROM `houses` WHERE id = " . $house_id;
     $result = mysqli_query($conn, $query);
@@ -24,11 +22,8 @@ $house_id = $_GET['house'];
     } 
     $data = mysqli_fetch_assoc($result);
     include('includes/houseInfo.php');
+
+
+require('includes/footer.php') 
+
 ?>
-
-
-
-
-
-
-<?php require('includes/footer.php') ?>

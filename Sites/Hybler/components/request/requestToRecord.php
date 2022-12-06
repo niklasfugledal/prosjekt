@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 
 $house_Id = $_GET['houseId'];
 $user_id = $_GET['userId'];
@@ -26,7 +26,7 @@ $query1 = "INSERT INTO `records` (user_id, house_id, rent_start, rent_end)
 
         if($res){
             echo 'Leiekontrakten er overført til siden "Hvem leier hos deg?"';
-            //header redirect
+            header("location: requestHouse.php");
 
         }else{
             echo 'Kunne ikke slette requests';

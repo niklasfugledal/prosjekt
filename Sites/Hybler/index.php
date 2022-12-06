@@ -6,7 +6,7 @@
 </head>
 
 <?php
-require_once('../Registration/Database.php');
+require_once('../DB/Database.php');
 
 
 // Initialize the session
@@ -15,7 +15,7 @@ session_start();
 ?>
 <?php require('includes/header.php') ?>
 <div class="d-flex mt-4 mx-4">
-	<h3 class="row">Welcome,&nbsp;
+	<h3 class="row">Velkommen,&nbsp;
 		<b><?php // check user login and output username
 			if ($user_logged) {
 				$user_id = ($_SESSION['id']);
@@ -36,7 +36,7 @@ session_start();
 </div>
 
 <div class="d-flex m-2">
-	Choose a house to rent.
+	
 </div>
 
 <div class="d-flex my-2">

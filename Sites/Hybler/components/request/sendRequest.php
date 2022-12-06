@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 
 $house_id = $_POST['houseID'];
 $start = $_POST['start'];
