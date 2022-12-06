@@ -16,7 +16,7 @@ $user_logged = false;
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?php echo $server; ?>css/style.css">
+	<link rel="stylesheet" href="<?php echo $server; ?>css/header.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -82,10 +82,19 @@ $user_logged = false;
 					if ($user_logged) { ?>
 					<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/profile.php"><span><i class="fa fa-sign-out text-white"></i></span>Profil</a>
-						</li>
+					</li>
+
+
+					<?php 
+					if($_SESSION['type'] != 'renter'){ ?>
 					<li class="nav-item mr-sm-2">
-							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/request/requestHouse.php"><span><i class="fa fa-sign-out text-white"></i></span>Forespørsler</a>
-						</li>
+					<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/request/requestHouse.php"><span><i class="fa fa-sign-out text-white"></i></span>Forespørsler</a>
+					</li>
+					<?php }
+					?>
+					
+
+						
 						<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/logout.php"><span><i class="fa fa-sign-out text-white"></i></span>Sign Out</a>
 						</li>

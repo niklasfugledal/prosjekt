@@ -125,7 +125,11 @@ $res = mysqli_query($conn, $ReadSql);
 									<div class="modal-footer">
 
 										<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+<<<<<<< HEAD
 										<a href="requestToRecord.php?houseId=<?php echo $data['houseId']; ?>"><button type="button" class="btn btn-primary"> Godta</button></a>
+=======
+										<a href="requestToRecord.php?houseId=<?php echo $data['houseId']; ?>&userId=<?php echo $data['userId']; ?>"><button type="button" class="btn btn-primary"> Ja, Godta</button></a>
+>>>>>>> main
 									</div>
 								</div>
 							</div>
