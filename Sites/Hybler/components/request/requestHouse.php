@@ -123,8 +123,9 @@ $res = mysqli_query($conn, $ReadSql);
 										<p>Er du sikker på at du vil godta forespørselen?</p>
 									</div>
 									<div class="modal-footer">
+
 										<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-										<a href="requestToRecord.php?houseId=<?php echo $data['houseId']; ?>"><button type="button" class="btn btn-danger"> Ja, Slett</button></a>
+										<a href="requestToRecord.php?houseId=<?php echo $data['houseId']; ?>"><button type="button" class="btn btn-primary"> Godta</button></a>
 									</div>
 								</div>
 							</div>

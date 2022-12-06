@@ -9,9 +9,6 @@ $end = $_POST['end'];
 $user_id = $_SESSION['id'];
 
 
-echo $houseID . " ";
-
-
 $query1 = "INSERT INTO `requests` (user_id, house_id, request_start, request_end) 
     VALUES ('$user_id', '$house_id', '$start', '$end')";
 $res = mysqli_query($conn, $query1);
