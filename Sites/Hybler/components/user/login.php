@@ -1,3 +1,14 @@
+<head>
+    <title>Rediger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <?php
 // Initialize the session
 session_start();
@@ -10,7 +21,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 // Include config file
 
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
  
 // Define variables and initialize with empty values
 $email = $password = "";
@@ -92,8 +103,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php require('../../includes/header.php') ?>
 
     <div class="wrapper mx-auto">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+        <h2>Logg inn</h2>
+        <p>Vennligst fyll inn personalia.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
@@ -101,15 +112,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>Passord</label>
                 <input type="password" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary" value="Logg inn">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-            <p>Forgot Password? <a href="reset-password.php">Reset Password</a>.</p>
+            <p>Har du ikke en konto? <a href="register.php">Registrer deg her</a>.</p>
+            
         </form>
     </div>    
 

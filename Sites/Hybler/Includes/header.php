@@ -72,6 +72,7 @@ $user_logged = false;
 				</ul>
 				
 				<?php
+				
 				if ($user_logged) { ?>
 					<input type="text" value="<?= $_SESSION['id'] ?>" id="userID" hidden />
 				<?php }
@@ -80,6 +81,8 @@ $user_logged = false;
 				
 					<?php
 					if ($user_logged) { ?>
+
+					
 					<li class="nav-item mr-sm-2">
 							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/profile.php"><span><i class="fa fa-sign-out text-white"></i></span>Profil</a>
 					</li>
@@ -92,16 +95,14 @@ $user_logged = false;
 					</li>
 					<?php }
 					?>
-					
 
-						
 						<li class="nav-item mr-sm-2">
-							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/logout.php"><span><i class="fa fa-sign-out text-white"></i></span>Sign Out</a>
+							<a class="nav-link btn btn-dark text-white" href="<?php echo $server; ?>components/user/logout.php"><span><i class="fa fa-sign-out text-white"></i></span>Logg ut</a>
 						</li>
 						
 					<?php } else { ?>
 						<li class="nav-item mr-sm-2">
-							<a class="nav-link btn btn-primary text-white" href="<?php echo $server; ?>components/user/login.php"><span><i class="fa fa-sign-in text-white"></i></span> Sign In</a>
+							<a class="nav-link btn btn-primary text-white" href="<?php echo $server; ?>components/user/login.php"><span><i class="fa fa-sign-in text-white"></i></span> Logg inn</a>
 						</li>
 					<?php } ?>
 					

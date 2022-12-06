@@ -1,6 +1,17 @@
+<head>
+    <title>Rediger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <?php
 
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 
 // Initialize the session
 session_start();
@@ -77,59 +88,59 @@ if (isset($_POST) & !empty($_POST)) {
 	<h2 class="my-4">Oppdater leilighetsinformasjon</h2>
 	<form method="post" enctype="multipart/form-data">
 		<div class="form-group">
-			<label>Location</label>
+			<label>Sted</label>
 			<input type="text" class="form-control" name="location" value="<?php echo $data['location']; ?>" required />
 		</div>
 		<div class="form-group">
-			<label>Price</label>
+			<label>Pris</label>
 			<input type="text" class="form-control" name="price" value="<?php echo $data['price']; ?>" required />
 		</div>
 		<div class="form-group">
-			<label>Short Description</label>
+			<label>Kort Beskrivelse</label>
 			<input type="text" class="form-control" name="description" value="<?php echo $data['description']; ?>" required />
 		</div>
 		<div class="form-group">
-			<label>Long Description</label>
+			<label>Lang Beskrivelse</label>
 			<input type="text" class="form-control" name="long_description" value="<?php echo $data['long_description']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Owner</label>
+			<label>Eier</label>
 			<input type="text" class="form-control" name="owner" value="<?php echo $data['owner']; ?>" required />
 		</div>
 		<div class="form-group">
-			<label>Owner Email</label>
+			<label>Eiers Email</label>
 			<input type="email" class="form-control" name="owner_email" value="<?php echo $data['owner_email']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Owner Phone number</label>
+			<label>Eiers Telefonnummer</label>
 			<input type="phone" class="form-control" name="owner_phone" value="<?php echo $data['owner_phone']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Primary room size</label>
+			<label>Primærrom Størrelse</label>
 			<input type="text" class="form-control" name="primary_room" value="<?php echo $data['primary_room']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Bedroom size</label>
+			<label>Soverom Størrelse</label>
 			<input type="text" class="form-control" name="bedroom" value="<?php echo $data['bedroom']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Floor location</label>
+			<label>Etasje</label>
 			<input type="text" class="form-control" name="floor" value="<?php echo $data['floor']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Rent Start</label>
+			<label>Leie Start</label>
 			<input type="date" class="form-control" name="rent_start" value="<?php echo $data['rent_start']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Rent end</label>
+			<label>Leie Slutt</label>
 			<input type="date" class="form-control" name="rent_end" value="<?php echo $data['rent_end']; ?>" required></input>
 		</div>
 		<div class="form-group">
-			<label>Image</label>
+			<label>Bilde</label>
 			<input type="file" class="form-control-file" name="image" accept=".png,.gif,.jpg,.webp" required />
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="Update" />
+		<input type="submit" class="btn btn-primary" value="Oppdater" />
 	</form>
 </div>
 

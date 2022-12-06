@@ -1,6 +1,17 @@
+<head>
+    <title>Rediger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <?php
 
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 
 // Initialize the session
 session_start();
@@ -28,8 +39,8 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION
 <?php require('../../includes/header.php') ?>
 <div class="container-fluid my-4">
 	<div class="row my-2">
-		<h2>House Rental Management System - Houses</h2>
-		<a href="add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Add New</button></a>
+		<h2>UiA Hybel - Alle hybler</h2>
+		<a href="add.php"><button type="button" class="btn btn-primary ml-4 pl-2">Legg til</button></a>
 	</div>
 	<table class="table ">
 		<thead>
@@ -76,9 +87,9 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION
 					<td><?php echo $data['rent_end']; ?></td>
 
 					<td>
-						<a href="update.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-info">Edit</button></a>
+						<a href="update.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-info">Endre</button></a>
 
-						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Delete</button>
+						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Slett</button>
 
 						<!-- Modal -->
 						<div class="modal fade" id="myModal<?php echo $data['id']; ?>" role="dialog">
@@ -87,17 +98,17 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION
 								<!-- Modal content-->
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title">Delete House</h5>
+										<h5 class="modal-title">Slett hybel</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
 									<div class="modal-body">
-										<p>Are you sure?</p>
+										<p>Er du sikker på at du vil slette?</p>
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<a href="delete.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-danger"> Yes, Delete</button></a>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+										<a href="delete.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-danger"> Ja, slett</button></a>
 									</div>
 								</div>
 

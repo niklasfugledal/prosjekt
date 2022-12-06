@@ -1,5 +1,5 @@
 <?php
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
 // Initialize the session
 session_start();
 

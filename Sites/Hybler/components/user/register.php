@@ -1,6 +1,17 @@
+<head>
+    <title>Rediger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <?php
 // Include config file
-require_once('../../../Registration/Database.php');
+require_once('../../../DB/Database.php');
  
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = "";
@@ -107,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-<?php require('../../Hybel.inc/header.php') ?>
+<?php require('../../Includes/header.php') ?>
 
     <div class="wrapper mx-auto">
         <h2>Sign Up</h2>
@@ -160,4 +171,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>    
 
-<?php require('../../../Hybler/Hybel.inc/footer.php') ?>
+<?php require('../../includes/footer.php') ?>
