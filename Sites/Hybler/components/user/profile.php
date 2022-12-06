@@ -15,7 +15,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -44,17 +44,20 @@ session_start();
                     $bday = $_POST['bday'];
                     $password = $_POST['password'];
                     $confirm_password = $_POST['confirm_password'];
+                    
+                    // hasher passord på nytt
+                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+                    if($password == $confirm_password){
+                        $param_password = password_hash($password, PASSWORD_DEFAULT);
+                    }
 
+                    
                     $updateUser = $_SESSION['id'];
-                    $update = "UPDATE users set name='$name',email='$email',adress='$adress', cell = '$cell', bday ='$bday', password='$password', password='$confirm_password' WHERE id='$id'";
+                    $update = "UPDATE users set name='$name',email='$email',adress='$adress', cell = '$cell', bday ='$bday', password='$param_password' WHERE id='$id'";
                     $updateResult = mysqli_query($conn, $update);
                     $row = mysqli_fetch_assoc($res);
                     $Row['Data'] ??= 'default value';
                     return $Row['Data'];
-
-                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-                    if(password_verify($password, $hashed_password)){
-                    }
 
                     $results = mysqli_query($conn, $update);
                     if ($results) {
@@ -67,7 +70,7 @@ session_start();
                 <div class="container">
                     <h2 style="text-align: center;">Oppdater brukerinformasjon</h2>
 
-                    <form method="POST" action="#">
+                    <form method="POST" action="">
 
                         <div class="form-group">
                             <label for="name">Brukernavn:</label>
@@ -91,11 +94,11 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="pwd">Passord:</label>
-                            <input type="password" class="form-control" id="pwd" value="<?php echo $row['password']; ?>" placeholder="Legg til Passord" name="password">
+                            <input type="password" class="form-control" id="pwd"   placeholder="Legg til nytt Passord" name="password">
                         </div>
                         <div class="form-group">
                             <label for="pwd"> Bekreft Passord:</label>
-                            <input type="password" class="form-control" id="pwd" value="<?php echo $row['password']; ?>" placeholder="Bekreft Passord" name="confirm_password">
+                            <input type="password" class="form-control" id="pwd"   placeholder="Bekreft nytt Passord" name="confirm_password">
                         </div>
                         <button type="submit" name="update" value="update" class="btn">Oppdater</button>
                     </form>
