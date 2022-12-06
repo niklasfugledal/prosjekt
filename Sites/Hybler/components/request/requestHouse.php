@@ -83,7 +83,7 @@ $res = mysqli_query($conn, $ReadSql);
 						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Slett</button>
 						
 
-						<!-- Modal -->
+						<!-- Modal slett -->
 						<div class="modal fade" id="myModal<?php echo $data['id']; ?>" role="dialog">
 							<div class="modal-dialog">
 
@@ -107,7 +107,7 @@ $res = mysqli_query($conn, $ReadSql);
 							</div>
 						</div>
 
-						<!-- Modal1 -->
+						<!-- Modal godta -->
 						<div class="modal fade" id="modal<?php echo $data['id']; ?>" role="dialog">
 							<div class="modal-dialog">
 
@@ -124,13 +124,11 @@ $res = mysqli_query($conn, $ReadSql);
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
-										<a href="requestToRecord.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-danger"> Ja, Slett</button></a>
+										<a href="requestToRecord.php?houseId=<?php echo $data['houseId']; ?>&userId=<?php echo $data['userId']; ?>"><button type="button" class="btn btn-primary"> Ja, Godta</button></a>
 									</div>
 								</div>
-
 							</div>
 						</div>
-
 					</td>
 				</tr>
 			<?php } ?>

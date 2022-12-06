@@ -11,7 +11,8 @@
 				<!-- Info-knapp -->
 				<button data-houseid="<?php echo $data['id']; ?>" type="button" class="btn btn-success rent-btn" onclick="location='../hybler/viewHouse.php?house=<?php echo $data['id']; ?>'">
 					<span id="<?php echo $data['id']; ?>" class="text-white">
-						<i class="fa fa-shopping-cart text-white"></i>
+						
+						<i class="fa-sharp fa-solid fa-magnifying-glass"></i>
 						Info
 					</span>
 				</button>
