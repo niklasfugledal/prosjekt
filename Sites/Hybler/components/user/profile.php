@@ -67,7 +67,7 @@ session_start();
                 <div class="container">
                     <h2 style="text-align: center;">Oppdater brukerinformasjon</h2>
 
-                    <form method="POST" action="#">
+                    <form method="POST" action="">
 
                         <div class="form-group">
                             <label for="name">Brukernavn:</label>
@@ -97,7 +97,15 @@ session_start();
                             <label for="pwd"> Bekreft Passord:</label>
                             <input type="password" class="form-control" id="pwd" value="<?php echo $row['password']; ?>" placeholder="Bekreft Passord" name="confirm_password">
                         </div>
-                        <button type="submit" name="update" value="update" class="btn">Oppdater</button>
+
+                        <?php
+                        if(isset($_POST['submit']))
+                        {
+                            header('Location: profile.php');
+                        }
+                        
+                        ?>
+                        <button type="submit" name="update" value="update" href="<?php echo $server; ?>/user/profile.php" class="btn">Oppdater</button>
                     </form>
 
                 </div>
