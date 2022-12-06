@@ -1,17 +1,40 @@
 <?php
+session_start();
+
 require_once('../../../Registration/Database.php');
 
-$user_id = ($_SESSION['id']);
+$house_Id = $_GET['houseId'];
+$user_id = $_SESSION['id'];
+echo($house_Id);
+echo($user_id);
 
-$query1 = "INSERT INTO `records` ('$user_id', house_id, request_start, request_end) 
-    VALUES ('$user_id', '$house_id', '$request_start', '$request_end')"; 
+$getRequerstRowQuery = "select * from requests where house_id ='$house_Id' and user_id='$user_id'";
+$res2 = mysqli_query($conn, $getRequerstRowQuery);
+$requestRowResult = mysqli_fetch_assoc($res2);
+
+$rent_start = $requestRowResult['request_start'];
+$rent_end = $requestRowResult['request_end'];
+
+$query1 = "INSERT INTO `records` (user_id, house_id, rent_start, rent_end) 
+    VALUES ('$user_id', '$house_Id', '$rent_start', '$rent_end')";
+
+echo ($query1);
     $res = mysqli_query($conn, $query1);
     if ($res) {
-        // header('location: index.php');
-        echo 'House Rented Successfully';
+        // sette den gamle raden fra requests
+        $DelSql = "DELETE FROM `requests` WHERE house_id= '$house_Id' and user_id= '$user_id' ";
+        $res = mysqli_query($conn, $DelSql);
+
+        if($res){
+            echo 'House Rented Successfully';
+            //header redirect
+
+        }else{
+            echo 'Kunne ikke slette requests';
+        }
+
     } else {
         echo 'Failed';
-        // print_r($res);
     }
 
-    ?>
+

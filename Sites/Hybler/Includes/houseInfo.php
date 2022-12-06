@@ -43,13 +43,20 @@
       <div class="Owner-phone">
        <p>Telefon:<?= $data['owner_phone']?></p>
 
-       
-       <button data-houseId="<?php echo $data['id']; ?>" type="button" class="btn btn-success .req-btn">
+       <form action="../Hybler/components/request/sendRequest.php" method="POST">
+       <label for="start">Start date:</label>
+       <input type="date" id="start" name="start" />
+
+       <label for="end">End date:</label>
+       <input type="date" id="end" name="end" />
+
+         <button name="houseID" value="<?php echo $data['id']; ?>" type="submit" class="btn btn-success .req-btn">
 					<span class="text-white">
-						<i class="fa fa-shopping-cart text-white"></i>
+            <i class="fa fa-shopping-cart text-white"></i>
 						Forespør hybel
 					</span>
 				</button>
+      </form>
 
       </div>
     </div>
