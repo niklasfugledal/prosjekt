@@ -16,7 +16,7 @@ $user_logged = false;
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?php echo $server; ?>css/header.css">
+	<link rel="stylesheet" href="<?php echo $server; ?>headerstyle/header.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

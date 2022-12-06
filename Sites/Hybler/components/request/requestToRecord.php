@@ -20,7 +20,7 @@ $query1 = "INSERT INTO `records` (user_id, house_id, rent_start, rent_end)
 
     $res = mysqli_query($conn, $query1);
     if ($res) {
-        // sette den gamle raden fra requests
+        
         $DelSql = "DELETE FROM `requests` WHERE house_id= '$house_Id' and user_id= '$user_id' ";
         $res = mysqli_query($conn, $DelSql);
 

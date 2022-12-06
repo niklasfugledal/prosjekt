@@ -8,7 +8,7 @@
 			<div style="display: flex; justify-content: space-between; align-items: center;">
 				<div style="font-weight: 600;"><span class="price"><?php echo $data['price']; ?>,-</span></div>
 
-				<!-- Info-knapp -->
+				<!-- Info-button -->
 				<button data-houseid="<?php echo $data['id']; ?>" type="button" class="btn btn-success rent-btn" onclick="location='../hybler/viewHouse.php?house=<?php echo $data['id']; ?>'">
 					<span id="<?php echo $data['id']; ?>" class="text-white">
 						

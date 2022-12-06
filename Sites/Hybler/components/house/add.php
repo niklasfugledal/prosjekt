@@ -97,7 +97,7 @@ if (isset($_POST) & !empty($_POST)) {
 		</div>
 		<div class="form-group">
 			<label>Lang Beskrivelse</label>
-			<textarea type="text" class="form-control" name="description" value="" required></textarea>
+			<textarea type="text" class="form-control" name="long_description" value="" required></textarea>
 		</div>
 		<div class="form-group">
 			<label>Eier</label>

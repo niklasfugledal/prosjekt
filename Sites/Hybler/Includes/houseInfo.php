@@ -21,7 +21,7 @@
 
     <div class="col-sm-4"> 
     <div class="Spesifikasjoner">
-      <p class="house-longdesc"><?= $data['long_description']?></p>     <?php  //trenger ikke echo ?>
+      <p class="house-longdesc"><?= $data['long_description']?></p>     
     </div>
     <div class="Primary">
        <p>Primærrom: <?= $data['primary_room']?></p>
