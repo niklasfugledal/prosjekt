@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../../../../css/style.css">
+
 <?php
 // Initialize the session
 session_start();
@@ -91,9 +93,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <?php require('../../Hybel.inc/header.php'); ?>
 
-    <div class="wrapper mx-auto">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+    <div class="login container">
+        
+				<h2>Logg inn med dataen du brukte under registrering!</h2>
+                <p></p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
@@ -105,11 +108,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
+            <div class="input-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-            <p>Forgot Password? <a href="reset-password.php">Reset Password</a>.</p>
+            <p>Ingen bruker? <a href="register.php">Registrer her</a>.</p>
         </form>
     </div>    
 

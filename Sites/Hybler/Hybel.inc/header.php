@@ -9,13 +9,12 @@ $user_logged = false;
 <html>
 
 <head>
-	<title>House Rental Management System</title>
+	<title>UiA Hybel utleie system</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
 	<link rel="stylesheet" href="<?php echo $server; ?>css/style.css">
 	
 
@@ -42,17 +41,17 @@ $user_logged = false;
 				<ul class="navbar-nav" id="navbar">
 					<li class="nav-item active">
 						<a class="nav container text-dark" href="<?php echo $server; ?>index.php">
-							<i class="fa fa-home text-dark"></i> House Rental</a>
+							<i class="fa fa-home text-dark"></i> UiA Hybel utleie</a>
 					</li>
 
 					<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 						$user_logged = true;
 						if ($_SESSION['type'] == 'admin' || 'owner' || 'renter') { ?>
 							<li class="nav-item">
-								<a class="nav container text-dark" href="<?php echo $server; ?>components/house/view.php">Houses</a>
+								<a class="nav container text-dark" href="<?php echo $server; ?>components/house/view.php">Hybler</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav container text-dark" href="<?php echo $server; ?>components/record/view.php">Renters</a>
+								<a class="nav container text-dark" href="<?php echo $server; ?>components/record/view.php">Utleiere</a>
 							</li>
 					<?php }
 					} ?>

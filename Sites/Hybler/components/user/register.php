@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../../../css/style.css">
 <?php
 // Include config file
 require_once('../../../Registration/Database.php');
@@ -109,12 +110,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 <?php require('../../Hybel.inc/header.php') ?>
 
-    <div class="wrapper mx-auto">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+    <div class="login container">
+        <h2>Registrer bruker</h2>
+        <p>Fyll ut skjemaet for registrering</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>Name</label>
+                <label>Fult navn</label>
                 <input type="text" name="name" class="form-control" value="">
             </div>    
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
@@ -135,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="date" name="bday" class="form-control" value="">
             </div>  
             <div class="form-group">
-			<label>Brukertype</label>
+			<label>Hvilken bruker er du? En som skal leie eller er du utleier?</label>
 			<select name="type" id="type" class="form-control" value ="">
 				<option value=""></option>
 				<option value="renter">Bruker</option>
@@ -143,12 +144,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</select>
 		</div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>Passord</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" required>
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
+                <label>Bekreft Password</label>
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" required>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
@@ -156,7 +157,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Allerede en bruker?<a href="login.php">Logg inn her</a>.</p>
         </form>
     </div>    
 

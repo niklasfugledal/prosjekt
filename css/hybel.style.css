@@ -37,7 +37,7 @@ html, body {
 header {
 	box-shadow: 0px 5px 5px #6c757d36;
 	position: fixed;
-	z-index: 99;
+	z-index: 100;
 	top: 0;
 }
 
